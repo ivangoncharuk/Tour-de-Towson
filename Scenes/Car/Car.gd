@@ -10,7 +10,7 @@ var max_speed_reverse = 250
 var slip_speed = 400
 var traction_fast = 0.1
 var traction_slow = 0.7
-
+var stamina = 100
 var acceleration = Vector2.ZERO
 var velocity = Vector2.ZERO
 var steer_direction
@@ -58,9 +58,15 @@ func get_input():
 		turn -= 1
 	steer_direction = turn * deg2rad(steering_angle)
 	if Input.is_action_pressed("accelerate"):
-		acceleration = transform.x * engine_power
-	if Input.is_action_pressed("brake"):
-		acceleration = transform.x * braking
+		if(Hud.get_child(0).value > 1):
+			acceleration = transform.x * engine_power
+			Hud.get_child(0).value -= .25
+	elif Input.is_action_pressed("brake"):
+		if(Hud.get_child(0).value > 1):
+			acceleration = transform.x * braking
+			Hud.get_child(0).value -= .35
+	else: 
+		Hud.get_child(0).value += .5
 		
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base/2.0
