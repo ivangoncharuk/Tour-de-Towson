@@ -186,7 +186,7 @@ tile_data = PoolIntArray( -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -6
 [node name="Car" parent="." instance=ExtResource( 2 )]
 position = Vector2( 472, 167 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="DevToolHUD" type="CanvasLayer" parent="."]
 
-[node name="ControlPanel" parent="CanvasLayer" instance=ExtResource( 3 )]
+[node name="ControlPanel" parent="DevToolHUD" instance=ExtResource( 3 )]
 player_path = NodePath("../../Car")

@@ -11,13 +11,10 @@ var slip_speed = 400
 var traction_fast = 0.1
 var traction_slow = 0.7
 var stamina = 100
+
 var acceleration = Vector2.ZERO
 var velocity = Vector2.ZERO
 var steer_direction
-
-const GAME_FPS = 60
-
-onready var sprite = $Sprite
 
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
@@ -27,28 +24,12 @@ func _physics_process(delta):
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
 
-
-#func _process(delta):
-#	# Fixes jittering when the player is moving
-#	var fps = Engine.get_frames_per_second()
-#	var lerp_interval = velocity / fps
-#	var lerp_position = global_transform.origin + lerp_interval
-#
-#	if fps > GAME_FPS:
-#		sprite.set_as_toplevel(true)
-#		sprite.global_transform.origin = sprite.global_transform.origin.linear_interpolate(lerp_position, 20 * delta)
-#	else:
-#		sprite.global_transform = global_transform
-#		sprite.set_as_toplevel(false)
-
-
 func apply_friction():
 	if velocity.length() < 5:
 		velocity = Vector2.ZERO
 	var friction_force = velocity * friction
 	var drag_force = velocity * velocity.length() * drag
 	acceleration += drag_force + friction_force
-	
 	
 func get_input():
 	var turn = 0
@@ -57,12 +38,13 @@ func get_input():
 	if Input.is_action_pressed("steer_left"):
 		turn -= 1
 	steer_direction = turn * deg2rad(steering_angle)
+	
 	if Input.is_action_pressed("accelerate"):
-		if(Hud.get_child(0).value > 1):
+		if (Hud.get_child(0).value > 1):
 			acceleration = transform.x * engine_power
 			Hud.get_child(0).value -= .25
 	elif Input.is_action_pressed("brake"):
-		if(Hud.get_child(0).value > 1):
+		if (Hud.get_child(0).value > 1):
 			acceleration = transform.x * braking
 			Hud.get_child(0).value -= .35
 	else: 
