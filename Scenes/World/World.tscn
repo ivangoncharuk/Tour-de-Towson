@@ -1,10 +1,13 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player/Car.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/ControlPanel/ControlPanel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/spritesheet_tiles.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/PlayerHUD/PlayerHUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/World/Checkpoint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/World/Checkpoints.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/World/FinishLine.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 64, 128, 64, 128, 128, 0, 128 )
@@ -196,3 +199,18 @@ player_path = NodePath("../../Car")
 
 [node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 5 )]
 player_path = NodePath("../../Car")
+
+[node name="Checkpoints" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 6 )]
+position = Vector2( 945, 192 )
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 6 )]
+position = Vector2( 1793, 1073 )
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource( 6 )]
+position = Vector2( 232, 1103 )
+
+[node name="FinishLine" parent="." instance=ExtResource( 8 )]
+position = Vector2( 239, 626 )

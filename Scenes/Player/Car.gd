@@ -13,11 +13,11 @@ export var traction_slow = 0.7
 
 export var stamina = 100
 export var max_stamina = 100
-
 var acceleration = Vector2.ZERO
 var velocity = Vector2.ZERO
 var steer_direction
-
+var total_checkpoints = 0
+var collected_checkpoints = 0
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
 	get_input()
@@ -25,7 +25,6 @@ func _physics_process(delta):
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
-
 func apply_friction():
 	if velocity.length() < 5:
 		velocity = Vector2.ZERO
@@ -69,3 +68,13 @@ func calculate_steering(delta):
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
 	
+func collect_checkpoint():
+	collected_checkpoints+= 1
+	print(collected_checkpoints)
+func set_checkpoint_count(cpc):
+	total_checkpoints = cpc
+func finish_line():
+	if(total_checkpoints<=collected_checkpoints):
+		print("You Win!")
+	else:
+		print("HELP")
