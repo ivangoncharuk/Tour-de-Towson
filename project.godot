@@ -18,17 +18,13 @@ config/name="Tour-de-Towson"
 run/main_scene="res://Scenes/World/World.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-Hud="*res://Scenes/World/HUD.tscn"
-
 [display]
 
-window/size/width=384
-window/size/height=216
-window/size/test_width=1536
-window/size/test_height=864
-window/stretch/mode="viewport"
+window/size/width=320
+window/size/height=180
+window/size/test_width=1280
+window/size/test_height=720
+window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
 [input]
@@ -52,6 +48,10 @@ brake={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
+}
+ui_focus={
+"deadzone": 0.5,
+"events": [  ]
 }
 
 [physics]

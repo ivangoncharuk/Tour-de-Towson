@@ -1,23 +1,22 @@
 extends KinematicBody2D
 
-var wheel_base = 70
-var steering_angle = 15
-var engine_power = 800
-var friction = -0.9
-var drag = -0.001
-var braking = -450
-var max_speed_reverse = 250
-var slip_speed = 400
-var traction_fast = 0.1
-var traction_slow = 0.7
-var stamina = 100
+export var wheel_base = 70
+export var steering_angle = 15
+export var engine_power = 800
+export var friction = -0.9
+export var drag = -0.001
+export var braking = -450
+export var max_speed_reverse = 50
+export var slip_speed = 400
+export var traction_fast = 0.1
+export var traction_slow = 0.7
+
+export var stamina = 0
+export var max_stamina = 100
+
 var acceleration = Vector2.ZERO
 var velocity = Vector2.ZERO
 var steer_direction
-
-const GAME_FPS = 60
-
-onready var sprite = $Sprite
 
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
@@ -27,28 +26,12 @@ func _physics_process(delta):
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
 
-
-#func _process(delta):
-#	# Fixes jittering when the player is moving
-#	var fps = Engine.get_frames_per_second()
-#	var lerp_interval = velocity / fps
-#	var lerp_position = global_transform.origin + lerp_interval
-#
-#	if fps > GAME_FPS:
-#		sprite.set_as_toplevel(true)
-#		sprite.global_transform.origin = sprite.global_transform.origin.linear_interpolate(lerp_position, 20 * delta)
-#	else:
-#		sprite.global_transform = global_transform
-#		sprite.set_as_toplevel(false)
-
-
 func apply_friction():
 	if velocity.length() < 5:
 		velocity = Vector2.ZERO
 	var friction_force = velocity * friction
 	var drag_force = velocity * velocity.length() * drag
 	acceleration += drag_force + friction_force
-	
 	
 func get_input():
 	var turn = 0
@@ -57,16 +40,18 @@ func get_input():
 	if Input.is_action_pressed("steer_left"):
 		turn -= 1
 	steer_direction = turn * deg2rad(steering_angle)
+
 	if Input.is_action_pressed("accelerate"):
-		if(Hud.get_child(0).value > 1):
+		if (stamina > 1):
 			acceleration = transform.x * engine_power
-			Hud.get_child(0).value -= .25
+			stamina -= .25
 	elif Input.is_action_pressed("brake"):
-		if(Hud.get_child(0).value > 1):
+		if (stamina > 1):
 			acceleration = transform.x * braking
-			Hud.get_child(0).value -= .35
+			stamina -= .35
 	else: 
-		Hud.get_child(0).value += .5
+		if (stamina < max_stamina):
+			stamina += .5
 		
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base/2.0
