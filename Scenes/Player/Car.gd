@@ -18,6 +18,7 @@ var velocity = Vector2.ZERO
 var steer_direction
 var total_checkpoints = 0
 var collected_checkpoints = 0
+var laps_remaining
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
 	get_input()
@@ -41,11 +42,11 @@ func get_input():
 	steer_direction = turn * deg2rad(steering_angle)
 
 	if Input.is_action_pressed("accelerate"):
-		if (stamina > 1):
+		if (stamina > 0):
 			acceleration = transform.x * engine_power
 			stamina -= .25
 	elif Input.is_action_pressed("brake"):
-		if (stamina > 1):
+		if (stamina > 0):
 			acceleration = transform.x * braking
 			stamina -= .35
 	else: 
@@ -74,7 +75,12 @@ func collect_checkpoint():
 func set_checkpoint_count(cpc):
 	total_checkpoints = cpc
 func finish_line():
-	if(total_checkpoints<=collected_checkpoints):
-		print("You Win!")
+	if(total_checkpoints <= collected_checkpoints && laps_remaining > 0):
+		laps_remaining-=1
+		collected_checkpoints = 0
+	elif(total_checkpoints > collected_checkpoints):
+		print("Do Nothing")
 	else:
-		print("HELP")
+		print("You Win!")
+func set_laps(wLaps):
+	laps_remaining = wLaps

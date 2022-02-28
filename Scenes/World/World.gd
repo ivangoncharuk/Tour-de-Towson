@@ -1,6 +1,7 @@
 extends Node2D
-
-#func _ready():
+var laps = 3
+func _ready():
+	get_node("Car").set_laps(laps)
 #	set_camera_limits()
 
 func set_camera_limits():
