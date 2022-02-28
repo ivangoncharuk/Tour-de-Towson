@@ -11,7 +11,7 @@ export var slip_speed = 400
 export var traction_fast = 0.1
 export var traction_slow = 0.7
 
-export var stamina = 0
+export var stamina = 100
 export var max_stamina = 100
 
 var acceleration = Vector2.ZERO
