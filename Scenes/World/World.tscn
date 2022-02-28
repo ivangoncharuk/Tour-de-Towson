@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Car/Car.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Player/Car.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/ControlPanel/ControlPanel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/spritesheet_tiles.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/PlayerHUD/PlayerHUD.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 64, 128, 64, 128, 128, 0, 128 )
@@ -186,7 +187,12 @@ tile_data = PoolIntArray( -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -6
 [node name="Car" parent="." instance=ExtResource( 2 )]
 position = Vector2( 472, 167 )
 
-[node name="DevToolHUD" type="CanvasLayer" parent="."]
+[node name="DevHud" type="CanvasLayer" parent="."]
 
-[node name="ControlPanel" parent="DevToolHUD" instance=ExtResource( 3 )]
+[node name="ControlPanel" parent="DevHud" instance=ExtResource( 3 )]
+player_path = NodePath("../../Car")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 5 )]
 player_path = NodePath("../../Car")

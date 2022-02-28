@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://font_x20.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Scenes/ControlPanel/ControlPanel.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/PlayerHUD/PlayerHUD.gd" type="Script" id=1]
+[ext_resource path="res://font_x20.tres" type="DynamicFont" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 10.0
@@ -10,14 +10,15 @@ content_margin_top = 10.0
 content_margin_bottom = 10.0
 bg_color = Color( 0, 0, 0, 0.458824 )
 
-[node name="ControlPanel" type="Control"]
-script = ExtResource( 2 )
+[node name="PlayerHUD" type="Control"]
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel" type="PanelContainer" parent="."]
-margin_right = 500.0
+margin_left = 195.0
+margin_right = 695.0
 margin_bottom = 40.0
 rect_scale = Vector2( 0.25, 0.25 )
 custom_styles/panel = SubResource( 1 )
@@ -36,15 +37,26 @@ margin_right = 480.0
 margin_bottom = 19.0
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/Speedometer"]
-margin_right = 443.0
+margin_right = 438.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 1 )
-text = "Speed"
+custom_fonts/font = ExtResource( 2 )
+text = "Stamina"
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Speed" type="Label" parent="Panel/VBoxContainer/Speedometer"]
-margin_left = 447.0
-margin_right = 480.0
+[node name="Stamina" type="Label" parent="Panel/VBoxContainer/Speedometer"]
+margin_left = 442.0
+margin_right = 475.0
 margin_bottom = 19.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "100"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="Panel/VBoxContainer/Speedometer"]
+margin_left = 80.0
+margin_right = 180.0
+margin_bottom = 19.0

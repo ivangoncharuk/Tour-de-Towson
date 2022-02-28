@@ -6,10 +6,10 @@ bg_color = Color( 0, 0.184314, 0.956863, 1 )
 [node name="HUD" type="CanvasLayer"]
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-margin_left = 205.0
-margin_top = 2.0
-margin_right = 320.0
-margin_bottom = 12.0
+margin_left = 243.0
+margin_top = 3.0
+margin_right = 319.0
+margin_bottom = 9.0
 custom_styles/fg = SubResource( 1 )
 value = 100.0
 percent_visible = false
@@ -18,9 +18,10 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 145.0
-margin_right = 211.0
-margin_bottom = 15.0
+margin_left = 149.0
+margin_top = 1.0
+margin_right = 228.0
+margin_bottom = 16.0
 text = "Stamina"
 __meta__ = {
 "_edit_use_anchors_": false

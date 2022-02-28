@@ -1,7 +1,7 @@
 extends Control
 
 export (NodePath) var player_path # Drag in the thing you want to control
-var SettingSlider = preload("res://Scenes/SettingSlider.tscn")
+var SettingSlider = preload("res://Scenes/ControlPanel/SettingSlider.tscn")
 var player = null
 
 var car_settings = [
@@ -48,6 +48,7 @@ func _ready():
 func _on_Value_changed(value, node):
 	player.set(node.name, value)
 	node.get_node("Value").text = str(value)
+
 
 func _input(event):
 	# Pressing tab hides the panel

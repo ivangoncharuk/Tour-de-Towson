@@ -18,17 +18,12 @@ config/name="Tour-de-Towson"
 run/main_scene="res://Scenes/World/World.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-Hud="*res://Scenes/World/HUD.tscn"
-
 [display]
 
 window/size/width=320
 window/size/height=180
-window/size/fullscreen=true
-window/size/test_width=640
-window/size/test_height=360
+window/size/test_width=1280
+window/size/test_height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
