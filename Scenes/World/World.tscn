@@ -204,15 +204,15 @@ player_path = NodePath("../../Car")
 script = ExtResource( 7 )
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 6 )]
-visible = false
+visible = true
 position = Vector2( 945, 192 )
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 6 )]
-visible = false
+visible = true
 position = Vector2( 1793, 1073 )
 
 [node name="Checkpoint3" parent="Checkpoints" instance=ExtResource( 6 )]
-visible = false
+visible = true
 position = Vector2( 232, 1103 )
 
 [node name="FinishLine" parent="." instance=ExtResource( 8 )]

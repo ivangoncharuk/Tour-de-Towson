@@ -1,9 +1,9 @@
 extends Node2D
 var laps = 3
-func _ready():
-	get_node("Car").set_laps(laps)
+#func _ready():
 #	set_camera_limits()
-
+func get_laps():
+	return laps
 func set_camera_limits():
 	var map_limits = $TileMap.get_used_rect()
 	var map_cellsize = $TileMap.cell_size

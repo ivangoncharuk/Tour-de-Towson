@@ -11,14 +11,14 @@ export var slip_speed = 400
 export var traction_fast = 0.1
 export var traction_slow = 0.7
 
-export var stamina = 100
+export var stamina = 100000000
 export var max_stamina = 100
 var acceleration = Vector2.ZERO
 var velocity = Vector2.ZERO
 var steer_direction
 var total_checkpoints = 0
 var collected_checkpoints = 0
-var laps_remaining
+var current_lap=1
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
 	get_input()
@@ -75,12 +75,14 @@ func collect_checkpoint():
 func set_checkpoint_count(cpc):
 	total_checkpoints = cpc
 func finish_line():
-	if(total_checkpoints <= collected_checkpoints && laps_remaining > 0):
-		laps_remaining-=1
+	if(total_checkpoints <= collected_checkpoints && current_lap < get_parent().get_laps()):
+		current_lap+=1
+		print(String(current_lap))
+		get_parent().get_node("CanvasLayer").get_node("PlayerHUD").get_node("Panel2/VBoxContainer/Speedometer/Current Lap").text = String(current_lap) + " /"
 		collected_checkpoints = 0
+		for i in get_parent().get_node("Checkpoints").get_children():
+			i.set_collected(false)
 	elif(total_checkpoints > collected_checkpoints):
 		print("Do Nothing")
 	else:
 		print("You Win!")
-func set_laps(wLaps):
-	laps_remaining = wLaps
