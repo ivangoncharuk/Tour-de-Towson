@@ -13,3 +13,4 @@ export var total_laps = 3
 #	camera.limit_top = map_limits.position.y * map_cellsize.y
 #	camera.limit_right = map_limits.end.x * map_cellsize.x
 #	camera.limit_bottom = map_limits.end.y * map_cellsize.y
+

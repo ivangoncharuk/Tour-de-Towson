@@ -7,8 +7,10 @@
 radius = 17.9999
 height = 84.0001
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Car" type="KinematicBody2D"]
 script = ExtResource( 2 )
+max_speed_reverse = 100
+stamina_regeneration = 0.25
 
 [node name="Sprite" type="Sprite" parent="."]
 show_behind_parent = true
