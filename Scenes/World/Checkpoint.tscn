@@ -18,7 +18,6 @@ func set_collected(coll):
 radius = 191.0
 
 [node name="Checkpoint" type="Area2D"]
-visible = false
 script = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
