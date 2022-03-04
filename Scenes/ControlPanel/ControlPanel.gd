@@ -27,7 +27,7 @@ var ranges = {
 	'drag': 			[-0.1, 0, 0.001],
 	'slip_speed': 		[100, 1500, 10],
 	'steering_angle': 	[0, 45, 1],
-	'max_stamina':		[0, 100, 1]}
+	'max_stamina':		[0, 400, 1]}
 
 
 func _ready():
