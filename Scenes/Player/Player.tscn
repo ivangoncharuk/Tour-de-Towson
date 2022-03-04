@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/biker.png" type="Texture" id=1]
+[ext_resource path="res://Assets/bicyclist_pixel_art_concept.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -17,7 +17,7 @@ show_behind_parent = true
 rotation = 1.5708
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( -8, 9, 64, 128 )
+region_rect = Rect2( 8, 4, 48, 120 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
