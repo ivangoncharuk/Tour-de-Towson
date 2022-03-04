@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+class_name Player
 export var debug_draw = false
 
 ### Constants ###
