@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/PlayerHUD/PlayerHUD.gd" type="Script" id=1]
 [ext_resource path="res://font_x20.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scenes/PlayerHUD/Time.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 10.0
@@ -31,7 +32,7 @@ __meta__ = {
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 490.0
-margin_bottom = 52.0
+margin_bottom = 75.0
 
 [node name="Speedometer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 margin_right = 480.0
@@ -76,3 +77,27 @@ margin_right = 480.0
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 2 )
 text = "of 420"
+
+[node name="Timer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_top = 46.0
+margin_right = 480.0
+margin_bottom = 65.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Timer"]
+margin_right = 476.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Time"
+
+[node name="Time" type="Label" parent="Panel/VBoxContainer/Timer"]
+margin_left = 480.0
+margin_right = 480.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="Panel/VBoxContainer/Timer/Time"]
+autostart = true
+
+[connection signal="timeout" from="Panel/VBoxContainer/Timer/Time/Timer" to="Panel/VBoxContainer/Timer/Time" method="_on_Timer_timeout"]
