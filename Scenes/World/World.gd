@@ -38,5 +38,3 @@ func _on_FinishLine_body_entered(body):
 				print("You Win!")
 		elif !checkpoints_collected:
 			print("More Checkpoints Needed")
-		else: 
-			print("JW")
