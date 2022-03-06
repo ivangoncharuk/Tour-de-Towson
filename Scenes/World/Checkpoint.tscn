@@ -13,6 +13,8 @@ func _on_Checkpoint_body_entered(body):
 
 func get_collected():
 	return collected
+func set_collected(set):
+	collected = set
 "
 
 [sub_resource type="CapsuleShape2D" id=2]
