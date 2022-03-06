@@ -24,8 +24,7 @@ var steer_direction
 ### Stamina ###
 export var max_stamina: float = 200
 export var stamina_regeneration: float = 0.05
-var stamina = 10000
-#var stamina = max_stamina / 2 # <== starting stamina value
+var stamina = max_stamina / 2 # <== starting stamina value
 
 
 func _physics_process(delta):
