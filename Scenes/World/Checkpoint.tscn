@@ -5,13 +5,16 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Area2D
 var collected = false
+
+
 func _on_Checkpoint_body_entered(body):
-	if(body.name == \"Car\"):
-		if(!collected):
-			get_parent().get_parent().get_node(\"Car\").collect_checkpoint()
-			collected = true
-func set_collected(coll):
-	collected = coll
+	if(body is Player):
+		collected = true
+
+func get_collected():
+	return collected
+func set_collected(set):
+	collected = set
 "
 
 [sub_resource type="CapsuleShape2D" id=2]

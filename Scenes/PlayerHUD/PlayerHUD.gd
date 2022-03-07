@@ -1,5 +1,4 @@
 extends Control
-
 export (NodePath) var player_path
 
 var player = null
@@ -17,4 +16,3 @@ func _input(_event):
 func _process(_delta):
 	if player:
 		$Panel/VBoxContainer/Speedometer/Stamina.text = "%3.1f" % player.stamina
-#		$Panel/VBoxContainer/LapCounter/LapsCompleted.text = "%3.1f" % player.laps

@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+class_name Player
 export var debug_draw = false
 
 ### Constants ###
@@ -24,7 +24,6 @@ var steer_direction
 ### Stamina ###
 export var max_stamina: float = 200
 export var stamina_regeneration: float = 0.05
-
 var stamina = max_stamina / 2 # <== starting stamina value
 
 
