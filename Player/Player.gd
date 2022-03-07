@@ -1,18 +1,19 @@
 extends KinematicBody2D
 class_name Player
-export var debug_draw = false
 
-### Constants ###
-export var traction_fast: float = 0.1
-export var traction_slow: float = 0.7
-export var engine_power: int = 800
-export var braking: int = -450
-export var friction: float = -0.9
-export var drag: float = -0.001
-export var slip_speed: int = 400
-export var steering_angle: int = 15
-export var wheel_base: int = 70
-export var max_speed_reverse: int = 50
+
+### exports ###
+export var debug_draw = false
+export (float) var traction_fast = 0.1
+export (float) var traction_slow = 0.7
+export (int) var engine_power = 800
+export (int) var braking = -450
+export (float) var friction = -0.9
+export (float) var drag = -0.001
+export (int) var slip_speed = 400
+export (int) var steering_angle = 15
+export (int) var wheel_base = 70
+export (int) var max_speed_reverse = 50
 
 
 ### Movement ###
@@ -79,6 +80,7 @@ func calculate_steering(delta):
 	if d < 0:
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
+
 
 func _draw():
 	if debug_draw:

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spritesheet_vehicles.png-029205195c7fdf1f90200245de1a244e.stex"
+path="res://.import/checkpoint_flag.png-6762f0fc45ed67b46387374f3fd68210.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/spritesheet_vehicles.png"
-dest_files=[ "res://.import/spritesheet_vehicles.png-029205195c7fdf1f90200245de1a244e.stex" ]
+source_file="res://Assets/sprites/checkpoint_flag.png"
+dest_files=[ "res://.import/checkpoint_flag.png-6762f0fc45ed67b46387374f3fd68210.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/double_lane_road.png-ea12a914c99c6317f9c662d1b58f12c6.stex"
+path="res://.import/spritesheet_vehicles.png-cfd7ed3cb7eec2bf7d0f8719c20436fb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/double_lane_road.png"
-dest_files=[ "res://.import/double_lane_road.png-ea12a914c99c6317f9c662d1b58f12c6.stex" ]
+source_file="res://Assets/sprites/spritesheet_vehicles.png"
+dest_files=[ "res://.import/spritesheet_vehicles.png-cfd7ed3cb7eec2bf7d0f8719c20436fb.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

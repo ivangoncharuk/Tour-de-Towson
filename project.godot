@@ -9,23 +9,17 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Label",
-"class": "LapsCompleted",
-"language": "GDScript",
-"path": "res://Scenes/PlayerHUD/LapsCompleted.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Scenes/Player/Player.gd"
+"path": "res://Player/Player.gd"
 }, {
 "base": "Node2D",
 "class": "Race_Map_1",
 "language": "GDScript",
-"path": "res://Scenes/World/World.gd"
+"path": "res://World/World.gd"
 } ]
 _global_script_class_icons={
-"LapsCompleted": "",
 "Player": "",
 "Race_Map_1": ""
 }
@@ -33,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Tour-de-Towson"
-run/main_scene="res://Scenes/World/World.tscn"
+run/main_scene="res://World/World.tscn"
 config/icon="res://icon.png"
 
 [display]

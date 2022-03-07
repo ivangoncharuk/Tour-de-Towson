@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/ControlPanel/ControlPanel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/double_lane_road.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/PlayerHUD/PlayerHUD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/World/Checkpoint.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/World/FinishLine.tscn" type="PackedScene" id=7]
+[ext_resource path="res://World/World.gd" type="Script" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ControlPanel/ControlPanel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/sprites/double_lane_road.png" type="Texture" id=4]
+[ext_resource path="res://PlayerHUD/PlayerHUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World/FinishLine.tscn" type="PackedScene" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "double_lane_road.png 0"
@@ -53,8 +53,15 @@ tile_set = SubResource( 1 )
 format = 1
 tile_data = PoolIntArray( 0, -1610612736, 0, 8, -1610612736, 0, 16, -1610612736, 0, 24, -1610612736, 0, 32, -1610612736, 0, 589824, -1610612735, 0, 589832, -1610612735, 0, 589840, -1610612735, 0, 589848, -1610612735, 0, 589856, -1610612735, 0 )
 
+[node name="FinishLine" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2678, 563 )
+rotation = 1.5708
+scale = Vector2( 1.47637, 1.62278 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 472, 167 )
+max_stamina = 400.0
+stamina_regeneration = 1.0
 
 [node name="DevHud" type="CanvasLayer" parent="."]
 
@@ -71,10 +78,5 @@ player_path = NodePath("../../Player")
 
 [node name="Checkpoint" parent="CheckpointContainer" instance=ExtResource( 6 )]
 position = Vector2( 1180, 247 )
-
-[node name="FinishLine" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2850, 566 )
-rotation = 1.5708
-scale = Vector2( 1.47637, 1.62278 )
 
 [connection signal="body_entered" from="FinishLine" to="." method="_on_FinishLine_body_entered"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kenny_racetrack_tiles.png-3b080acead443da7d208b1f9558009a8.stex"
+path="res://.import/modernish_roads.png-cd62d66b1dd539cefd52318b45bdac34.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/kenny_racetrack_tiles.png"
-dest_files=[ "res://.import/kenny_racetrack_tiles.png-3b080acead443da7d208b1f9558009a8.stex" ]
+source_file="res://Assets/sprites/modernish_roads.png"
+dest_files=[ "res://.import/modernish_roads.png-cd62d66b1dd539cefd52318b45bdac34.stex" ]
 
 [params]
 
