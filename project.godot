@@ -9,19 +9,19 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "DemoRaceMap",
+"language": "GDScript",
+"path": "res://World/World.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player/Player.gd"
-}, {
-"base": "Node2D",
-"class": "Race_Map_1",
-"language": "GDScript",
-"path": "res://World/World.gd"
 } ]
 _global_script_class_icons={
-"Player": "",
-"Race_Map_1": ""
+"DemoRaceMap": "",
+"Player": ""
 }
 
 [application]

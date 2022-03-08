@@ -3,7 +3,7 @@ class_name Player
 
 
 ### exports ###
-export var debug_draw = false
+export (bool) var debug_draw = false
 export (float) var traction_fast = 0.1
 export (float) var traction_slow = 0.7
 export (int) var engine_power = 800
@@ -19,16 +19,16 @@ export (int) var max_speed_reverse = 50
 ### Movement ###
 var acceleration := Vector2.ZERO
 var velocity := Vector2.ZERO
-var steer_direction
+var steer_direction: float
 
 
 ### Stamina ###
-export var max_stamina: float = 200
+export var max_stamina: float = 300
 export var stamina_regeneration: float = 0.05
-var stamina = max_stamina / 2 # <== starting stamina value
+var stamina: float = max_stamina # <== starting stamina value
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	acceleration = Vector2.ZERO
 	get_input()
 	apply_friction()
@@ -37,16 +37,16 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 
-func apply_friction():
+func apply_friction() -> void:
 	if velocity.length() < 5:
 		velocity = Vector2.ZERO
-	var friction_force = velocity * friction
-	var drag_force = velocity * velocity.length() * drag
+	var friction_force: Vector2 = velocity * friction
+	var drag_force: Vector2 = velocity * velocity.length() * drag
 	acceleration += drag_force + friction_force
 
 
-func get_input():
-	var turn = 0
+func get_input() -> void:
+	var turn: int = 0
 	if Input.is_action_pressed("steer_right"):
 		turn += 1
 	if Input.is_action_pressed("steer_left"):
@@ -65,16 +65,16 @@ func get_input():
 			stamina += stamina_regeneration
 
 
-func calculate_steering(delta):
-	var rear_wheel = position - transform.x * wheel_base/2.0
-	var front_wheel = position + transform.x * wheel_base/2.0
+func calculate_steering(delta: float) -> void:
+	var rear_wheel: Vector2 = position - transform.x * wheel_base/2.0
+	var front_wheel: Vector2 = position + transform.x * wheel_base/2.0
 	rear_wheel += velocity * delta
 	front_wheel += velocity.rotated(steer_direction) * delta
-	var new_heading = (front_wheel - rear_wheel).normalized()
-	var traction = traction_slow
+	var new_heading: Vector2 = (front_wheel - rear_wheel).normalized()
+	var traction: float = traction_slow
 	if velocity.length() > slip_speed:
 		traction = traction_fast
-	var d = new_heading.dot(velocity.normalized())
+	var d: float = new_heading.dot(velocity.normalized())
 	if d > 0:
 		velocity = velocity.linear_interpolate(new_heading * velocity.length(), traction)
 	if d < 0:
@@ -82,7 +82,7 @@ func calculate_steering(delta):
 	rotation = new_heading.angle()
 
 
-func _draw():
+func _draw() -> void:
 	if debug_draw:
 		draw_circle(Vector2(wheel_base/2.0, 0), 5, Color(1, 0, 0))
 		draw_circle(Vector2(-wheel_base/2.0, 0), 5, Color(1, 0, 0))
