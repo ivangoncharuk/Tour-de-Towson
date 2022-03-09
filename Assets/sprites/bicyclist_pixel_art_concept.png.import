@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kenny_racetrack_tiles.png-3b080acead443da7d208b1f9558009a8.stex"
+path="res://.import/bicyclist_pixel_art_concept.png-bb328dc130c11a5e112ba60a608d37e1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/kenny_racetrack_tiles.png"
-dest_files=[ "res://.import/kenny_racetrack_tiles.png-3b080acead443da7d208b1f9558009a8.stex" ]
+source_file="res://Assets/sprites/bicyclist_pixel_art_concept.png"
+dest_files=[ "res://.import/bicyclist_pixel_art_concept.png-bb328dc130c11a5e112ba60a608d37e1.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

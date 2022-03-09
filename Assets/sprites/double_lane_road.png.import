@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kenny_objects.png-c84833a638b9485ecdbfda551c49892e.stex"
+path="res://.import/double_lane_road.png-61d0b27255a8c02d372276a097333af4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/kenny_objects.png"
-dest_files=[ "res://.import/kenny_objects.png-c84833a638b9485ecdbfda551c49892e.stex" ]
+source_file="res://Assets/sprites/double_lane_road.png"
+dest_files=[ "res://.import/double_lane_road.png-61d0b27255a8c02d372276a097333af4.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

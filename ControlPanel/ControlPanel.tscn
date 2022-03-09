@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://font_x20.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Scenes/ControlPanel/ControlPanel.gd" type="Script" id=2]
+[ext_resource path="res://Assets/fonts/font_x20.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ControlPanel/ControlPanel.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 10.0
@@ -29,9 +29,10 @@ __meta__ = {
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 490.0
-margin_bottom = 30.0
+margin_bottom = 50.0
 
 [node name="Speedometer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+visible = false
 margin_right = 480.0
 margin_bottom = 19.0
 
@@ -48,3 +49,23 @@ margin_right = 480.0
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "100"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_right = 480.0
+margin_bottom = 40.0
+
+[node name="DebugDraw" type="CheckButton" parent="Panel/VBoxContainer/HBoxContainer"]
+margin_right = 179.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "Debug Draw"
+
+[node name="InfStamina" type="CheckButton" parent="Panel/VBoxContainer/HBoxContainer"]
+margin_left = 183.0
+margin_right = 368.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "Max Stamina"
+
+[connection signal="toggled" from="Panel/VBoxContainer/HBoxContainer/DebugDraw" to="." method="_on_DebugDraw_toggled"]
+[connection signal="toggled" from="Panel/VBoxContainer/HBoxContainer/InfStamina" to="." method="_on_InfStamina_toggled"]

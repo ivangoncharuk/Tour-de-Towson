@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/modernish_roads.png-a3ac24c8d86ac87d39f38470506e6adc.stex"
+path="res://.import/checkpoint_flag.png-6762f0fc45ed67b46387374f3fd68210.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/modernish_roads.png"
-dest_files=[ "res://.import/modernish_roads.png-a3ac24c8d86ac87d39f38470506e6adc.stex" ]
+source_file="res://Assets/sprites/checkpoint_flag.png"
+dest_files=[ "res://.import/checkpoint_flag.png-6762f0fc45ed67b46387374f3fd68210.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
