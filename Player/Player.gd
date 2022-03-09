@@ -4,6 +4,8 @@ class_name Player
 
 ### exports ###
 export (bool) var debug_draw = false
+export (bool) var infinite_stamina = false
+
 export (float) var traction_fast = 0.1
 export (float) var traction_slow = 0.7
 export (int) var engine_power = 800
@@ -35,6 +37,19 @@ func _physics_process(delta: float) -> void:
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
+	
+	
+	if infinite_stamina:
+		stamina = 1337
+	elif not infinite_stamina and stamina > max_stamina:
+		stamina = max_stamina
+	
+	$LabelContainer.visible = false
+	if debug_draw:
+		$LabelContainer.global_rotation = 0
+		$LabelContainer.visible = true
+		$LabelContainer/SpeedLabel.text = str("%3.1f" % velocity.length())
+		
 
 
 func apply_friction() -> void:
@@ -63,6 +78,8 @@ func get_input() -> void:
 	else:
 		if stamina < max_stamina:
 			stamina += stamina_regeneration
+			
+
 
 
 func calculate_steering(delta: float) -> void:
@@ -71,18 +88,18 @@ func calculate_steering(delta: float) -> void:
 	rear_wheel += velocity * delta
 	front_wheel += velocity.rotated(steer_direction) * delta
 	var new_heading: Vector2 = (front_wheel - rear_wheel).normalized()
-	var traction: float = traction_slow
+	var traction = traction_slow
+#	$SkidLeft.emitting = false
 	if velocity.length() > slip_speed:
 		traction = traction_fast
-	var d: float = new_heading.dot(velocity.normalized())
+	var d = new_heading.dot(velocity.normalized())
+#	if d > 0.1 and d < 1 and velocity.length() > slip_speed:
+#		$SkidLeft.emitting = true
 	if d > 0:
 		velocity = velocity.linear_interpolate(new_heading * velocity.length(), traction)
-	if d < 0:
+	elif d < 0:
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
+	
 
 
-func _draw() -> void:
-	if debug_draw:
-		draw_circle(Vector2(wheel_base/2.0, 0), 5, Color(1, 0, 0))
-		draw_circle(Vector2(-wheel_base/2.0, 0), 5, Color(1, 0, 0))

@@ -64,3 +64,13 @@ func _input(event):
 func _process(_delta):
 	if player:
 		$Panel/VBoxContainer/Speedometer/Speed.text = "%3.1f" % player.velocity.length()
+
+func _on_InfStamina_toggled(button_pressed: bool) -> void:
+	pass # Replace with function body.func _on_CheckButton_toggled(button_pressed: bool):
+	if player:
+		player.infinite_stamina = button_pressed
+
+
+func _on_DebugDraw_toggled(button_pressed: bool) -> void:
+	if player:
+		player.debug_draw = button_pressed

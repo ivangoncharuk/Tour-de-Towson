@@ -72,11 +72,14 @@ func calculate_steering(delta):
 
 	var traction = traction_slow
 	$SkidLeft.emitting = false
+	$SkidRight.emitting = false
+	
 	if velocity.length() > slip_speed:
 		traction = traction_fast
 	var d = new_heading.dot(velocity.normalized())
 	if d > 0.1 and d < 1 and velocity.length() > slip_speed:
 		$SkidLeft.emitting = true
+		$SkidRight.emitting = true
 	if d > 0:
 		velocity = velocity.linear_interpolate(new_heading * velocity.length(), traction)
 	elif d < 0:

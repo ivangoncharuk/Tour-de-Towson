@@ -231,15 +231,14 @@ tile_data = PoolIntArray( 0, -1073741820, 0, 1, -1073741819, 0, 2, -1610612735, 
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2581, 289 )
-debug_draw = true
+debug_draw = false
 steering_angle = 10
 wheel_base = 75
 stamina_regeneration = 1.0
 
-[node name="DevHud" type="CanvasLayer" parent="."]
+[node name="DevTools" type="CanvasLayer" parent="."]
 
-[node name="ControlPanel" parent="DevHud" instance=ExtResource( 3 )]
-visible = false
+[node name="ControlPanel" parent="DevTools" instance=ExtResource( 3 )]
 player_path = NodePath("../../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -266,3 +265,4 @@ _next_checkpoint = NodePath("../cp2")
 [node name="cp2" parent="Checkpoints" instance=ExtResource( 6 )]
 position = Vector2( 478, 1799 )
 scale = Vector2( 6.84, 1 )
+_next_checkpoint = NodePath("../Finish")
