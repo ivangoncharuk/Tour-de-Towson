@@ -29,6 +29,9 @@ export var max_stamina: float = 300
 export var stamina_regeneration: float = 0.05
 var stamina: float = max_stamina # <== starting stamina value
 
+func _ready() -> void:
+	pass
+
 
 func _physics_process(delta: float) -> void:
 	acceleration = Vector2.ZERO
@@ -89,12 +92,12 @@ func calculate_steering(delta: float) -> void:
 	front_wheel += velocity.rotated(steer_direction) * delta
 	var new_heading: Vector2 = (front_wheel - rear_wheel).normalized()
 	var traction = traction_slow
-#	$SkidLeft.emitting = false
+	$Skid.emitting = false
 	if velocity.length() > slip_speed:
 		traction = traction_fast
 	var d = new_heading.dot(velocity.normalized())
-#	if d > 0.1 and d < 1 and velocity.length() > slip_speed:
-#		$SkidLeft.emitting = true
+	if d > 0.1 and d < 1 and velocity.length() > slip_speed:
+		$Skid.emitting = true
 	if d > 0:
 		velocity = velocity.linear_interpolate(new_heading * velocity.length(), traction)
 	elif d < 0:

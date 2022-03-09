@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ControlPanel/ControlPanel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/sprites/kenny_racetrack_tiles.png" type="Texture" id=4]
-[ext_resource path="res://PlayerHUD/PlayerHUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
@@ -239,11 +238,6 @@ stamina_regeneration = 1.0
 [node name="DevTools" type="CanvasLayer" parent="."]
 
 [node name="ControlPanel" parent="DevTools" instance=ExtResource( 3 )]
-player_path = NodePath("../../Player")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 5 )]
 player_path = NodePath("../../Player")
 
 [node name="Checkpoints" type="Node" parent="."]

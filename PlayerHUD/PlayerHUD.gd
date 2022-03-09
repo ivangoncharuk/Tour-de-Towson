@@ -16,3 +16,4 @@ func _input(_event):
 func _process(_delta):
 	if player:
 		$Panel/VBoxContainer/Speedometer/Stamina.text = "%3.1f" % player.stamina
+		$Panel/VBoxContainer/LapCounter/CurrentLap.text = "%d" % Global.get_lap_counter()
