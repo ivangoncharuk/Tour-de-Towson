@@ -82,7 +82,7 @@ size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "Time"
 
-[node name="LapsCompleted" type="Label" parent="Panel/VBoxContainer/Time"]
+[node name="CurrentTime" type="Label" parent="Panel/VBoxContainer/Time"]
 margin_left = 395.0
 margin_right = 480.0
 margin_bottom = 19.0
