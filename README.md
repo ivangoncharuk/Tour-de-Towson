@@ -3,7 +3,7 @@
 Top-down bike pixel art game for Towson Game Design Club. Inspired[^tourdefrance-gameplay] by the Tour-De-France, you will be controlling a bicyclist competing against other bicyclists or AI's around the city of Towson, Maryland (*or other locations*). With unqiue gameplay and control mechanics like the [Peleton](https://en.wikipedia.org/wiki/Peloton)[^visualization], potentially being able to coordinate with a team to perform a [double pased line](https://youtu.be/h7wPa1Hl5ZA?t=361 "The Tour De France Explained in Animation"), this game is a personal side project and my first *seriously taken* shot at a fun video-game. 
 Before complex things like the **peleton** and **team tactics** can be implemented the goal is to first:
 - Create a simple arcade-racing type game
-  - + multiplayer and AI
+  - multiplayer and AI
 - Have a consistant, simple, but visually appealing artwork style
 - Modular tiles for map creation
 - Convert racing *car* physics into a racing *bike* physics
@@ -34,11 +34,16 @@ alt="Tour de France 2020 Gameplay (PS4 HD) [1080p60FPS]" width="60" height="45" 
 - [ ] Map/Level Selector
 
 ### Gameplay
-- [ ] Make the player movement fit more with bicycle than a car.[^movement]
-- [ ] Create a track in reference to Towson's roads or paths through the campus.[^map]
-- [ ] [Create AI that follows a path but can avoid obstacles](http://kidscancode.org/godot_recipes/ai/context_map/ "Context Based Steering")
-- [ ] Create controls and game logic that can immitate a tour-de-france type game. [^tourdefrance-gameplay]
-- [ ] Use real life physics to determine the bike logic.[^physics]
+- [ ] Countdown timer to start the race
+- [ ] A way to pause the game
+- [ ] A winning game state after winning match
+- [ ] Implement way to save/load the game
+- [ ] Make the player movement fit more with bicycle than a car[^movement]
+- [ ] Create a track in reference to Towson's roads or paths through the campus[^map]
+- [ ] [Create AI that follows context based steering](http://kidscancode.org/godot_recipes/ai/context_map/ "Context Based Steering")
+- [ ] Create controls and game logic that can immitate a tour-de-france type game[^tourdefrance-gameplay]
+- [ ] Use real life physics to determine the bike logic[^physics]
+- [ ] Implement multiplayer (decision: peer-to-peer or server-client)
 
 [^movement]: A pedaling mechanic or something that isn't just holding
 <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> to move around.
@@ -62,8 +67,10 @@ https://www.real-world-physics-problems.com/bicycle-physics.html
 ## Misc
 - [ ] Contributor.md file (for contributor credit)
 - [ ] Create project game design document and integrate it with github.
+- [ ] Create theme for UI
+- [ ] 
 
 ## Current sneak peek of the game
-![Sneak Peak](<img width="1279" alt="image" src="https://user-images.githubusercontent.com/85744041/157512213-ebdfb25e-010a-4f2f-942b-20cb5ab7601c.png">
-)
+[Sneak Peak](https://user-images.githubusercontent.com/85744041/157512213-ebdfb25e-010a-4f2f-942b-20cb5ab7601c.png)
+
 
