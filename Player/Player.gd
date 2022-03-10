@@ -27,6 +27,7 @@ var steer_direction: float
 var _time: float = 0
 var timer_on: bool = false
 var time_passed: String
+var time_str: String
 
 ### Stamina ###
 export var max_stamina: float = 300
@@ -34,7 +35,7 @@ export var stamina_regeneration: float = 0.05
 var stamina: float = max_stamina # <== starting stamina value
 
 func _ready() -> void:
-	pass
+	timer_on = true
 
 
 func _physics_process(delta: float) -> void:
@@ -47,6 +48,13 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity)
 	
 	time_passed = _process_time(delta) # clock timer
+	
+	if Global.get_lap_counter() == 2:
+		print(time_passed)
+		timer_on = false
+
+
+
 	_handle_cheats()
 	_handle_debug()
 	
@@ -60,15 +68,18 @@ func _apply_friction() -> void:
 	acceleration += drag_force + friction_force
 
 """
-Returns a formatted string for the time
+Returns time_passed: String
 """
 func _process_time(delta: float) -> String:
+	if not timer_on:				#
+		return time_str				#
+	#===========guard===============#
 	_time += delta
 	var milli_secs := fmod(_time, 1) * 1000
 	var secs := fmod(_time, 60)
 	var mins := fmod(_time, 60 * 60) / 60
-	return "%02d : %02d : %03d" % [mins, secs, milli_secs]
-	
+	time_str = "%02d : %02d : %03d" % [mins, secs, milli_secs]
+	return time_str
 
 
 func _handle_cheats() -> void:

@@ -17,4 +17,5 @@ func _process(_delta):
 	if player:
 		$Panel/VBoxContainer/Speedometer/Stamina.text = "%3.1f" % player.stamina
 		$Panel/VBoxContainer/LapCounter/CurrentLap.text = "%d" % Global.get_lap_counter()
-		$Panel/VBoxContainer/Time/CurrentTime.text = player.time_passed
+		
+		$Panel/VBoxContainer/Time/CurrentTime.text = str(player.time_passed) # nil
