@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/checkpoint_flag.png-6762f0fc45ed67b46387374f3fd68210.stex"
+path="res://.import/modernish_roads.png-c7d7c52725fb57466037c19314aa9088.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/checkpoint_flag.png"
-dest_files=[ "res://.import/checkpoint_flag.png-6762f0fc45ed67b46387374f3fd68210.stex" ]
+source_file="res://Assets/sprites/tilesets/modernish_roads.png"
+dest_files=[ "res://.import/modernish_roads.png-c7d7c52725fb57466037c19314aa9088.stex" ]
 
 [params]
 

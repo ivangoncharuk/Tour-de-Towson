@@ -33,18 +33,18 @@ margin_top = 10.0
 margin_right = 490.0
 margin_bottom = 75.0
 
-[node name="Speedometer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="StaminaContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 margin_right = 480.0
 margin_bottom = 19.0
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/Speedometer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/StaminaContainer"]
 margin_right = 443.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "Stamina"
 
-[node name="Stamina" type="Label" parent="Panel/VBoxContainer/Speedometer"]
+[node name="Stamina" type="Label" parent="Panel/VBoxContainer/StaminaContainer"]
 margin_left = 447.0
 margin_right = 480.0
 margin_bottom = 19.0
@@ -70,19 +70,19 @@ margin_bottom = 19.0
 custom_fonts/font = ExtResource( 2 )
 text = "2"
 
-[node name="Time" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="TimeContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 margin_top = 46.0
 margin_right = 480.0
 margin_bottom = 65.0
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/Time"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/TimeContainer"]
 margin_right = 391.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "Time"
 
-[node name="CurrentTime" type="Label" parent="Panel/VBoxContainer/Time"]
+[node name="CurrentTime" type="Label" parent="Panel/VBoxContainer/TimeContainer"]
 margin_left = 395.0
 margin_right = 480.0
 margin_bottom = 19.0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ControlPanel/ControlPanel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/sprites/kenny_racetrack_tiles.png" type="Texture" id=4]
+[ext_resource path="res://Assets/sprites/tilesets/kenny_racetrack_tiles.png" type="Texture" id=4]
+[ext_resource path="res://PlayerHUD/PlayerHUD.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 19.6364, 0.105103, 20.7938, 128, 0, 128 )
@@ -219,6 +220,15 @@ points = PoolVector2Array( 0, 0, 128, 0, 127.978, 19.781, 0, 20.116 )
 
 [node name="Level" type="Node2D"]
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ControlPanel" parent="HUD" instance=ExtResource( 3 )]
+visible = false
+player_path = NodePath("../../Player")
+
+[node name="PlayerHUD" parent="HUD" instance=ExtResource( 5 )]
+player_path = NodePath("../../Player")
+
 [node name="Racetrack" type="TileMap" parent="."]
 scale = Vector2( 1.5, 1.5 )
 tile_set = SubResource( 1 )
@@ -232,19 +242,12 @@ steering_angle = 10
 wheel_base = 75
 stamina_regeneration = 1.0
 
-[node name="DevTools" type="CanvasLayer" parent="."]
-
-[node name="ControlPanel" parent="DevTools" instance=ExtResource( 3 )]
-visible = false
-player_path = NodePath("../../Player")
-
 [node name="Checkpoints" type="Node2D" parent="."]
-visible = false
 
 [node name="Finish" parent="Checkpoints" instance=ExtResource( 1 )]
-position = Vector2( 2771, 479 )
+position = Vector2( 2778, 479 )
 rotation = 1.5708
-scale = Vector2( 6.88, 1 )
+scale = Vector2( 13.6282, 1.03936 )
 _is_active = true
 _is_finish_line = true
 _next_checkpoint = NodePath("../cp1")
@@ -252,10 +255,10 @@ _next_checkpoint = NodePath("../cp1")
 [node name="cp1" parent="Checkpoints" instance=ExtResource( 1 )]
 position = Vector2( 2778, 2589 )
 rotation = 1.5708
-scale = Vector2( 6.88, 1 )
+scale = Vector2( 13.56, 1 )
 _next_checkpoint = NodePath("../cp2")
 
 [node name="cp2" parent="Checkpoints" instance=ExtResource( 1 )]
 position = Vector2( 478, 1799 )
-scale = Vector2( 6.84, 1 )
+scale = Vector2( 13.4442, 1 )
 _next_checkpoint = NodePath("../Finish")

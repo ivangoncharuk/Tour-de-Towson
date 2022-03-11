@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spritesheet_tiles.png-d48993c7ec1fce13cb447975685002fb.stex"
+path="res://.import/double_lane_road.png-e88cd0601b6765998426dd4f389b2b58.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/spritesheet_tiles.png"
-dest_files=[ "res://.import/spritesheet_tiles.png-d48993c7ec1fce13cb447975685002fb.stex" ]
+source_file="res://Assets/sprites/prototype/double_lane_road.png"
+dest_files=[ "res://.import/double_lane_road.png-e88cd0601b6765998426dd4f389b2b58.stex" ]
 
 [params]
 
