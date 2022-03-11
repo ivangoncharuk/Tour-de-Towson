@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/checkered_flag.png-a16ef83cfbf7935cf3f7cddda4c2ff19.stex"
+path="res://.import/spritesheet_tiles.png-b152f6e81aa499230b52a7125e730edb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/checkered_flag.png"
-dest_files=[ "res://.import/checkered_flag.png-a16ef83cfbf7935cf3f7cddda4c2ff19.stex" ]
+source_file="res://Assets/sprites/tilesets/spritesheet_tiles.png"
+dest_files=[ "res://.import/spritesheet_tiles.png-b152f6e81aa499230b52a7125e730edb.stex" ]
 
 [params]
 

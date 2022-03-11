@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/modernish_roads.png-cd62d66b1dd539cefd52318b45bdac34.stex"
+path="res://.import/checkered_flag.png-29c77d2a6ecc4d59ab0404fbd2599981.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/modernish_roads.png"
-dest_files=[ "res://.import/modernish_roads.png-cd62d66b1dd539cefd52318b45bdac34.stex" ]
+source_file="res://Assets/sprites/prototype/checkered_flag.png"
+dest_files=[ "res://.import/checkered_flag.png-29c77d2a6ecc4d59ab0404fbd2599981.stex" ]
 
 [params]
 

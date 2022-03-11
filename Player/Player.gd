@@ -1,8 +1,8 @@
 extends KinematicBody2D
 class_name Player
 
-### exports ###
 
+## movement value exports ##
 export (float) var traction_fast = 0.1
 export (float) var traction_slow = 0.7
 export (int) var engine_power = 800
@@ -14,20 +14,18 @@ export (int) var steering_angle = 15
 export (int) var wheel_base = 70
 export (int) var max_speed_reverse = 50
 
-### Debug ###
-var debug_draw: bool = false
-var infinite_stamina: bool = false
-
 ### Movement ###
 var acceleration := Vector2.ZERO
 var velocity := Vector2.ZERO
 var steer_direction: float
 
+### Debug ###
+var debug_draw: bool = false
+var infinite_stamina: bool = false
+
 ### Time ###
-var _time: float = 0
-var timer_on: bool = false
-var time_passed: String
-var time_str: String
+var _time: float = 0 setget set_current_time, get_current_time
+var is_timer_on: bool = false
 
 ### Stamina ###
 export var max_stamina: float = 300
@@ -35,8 +33,14 @@ export var stamina_regeneration: float = 0.05
 var stamina: float = max_stamina # <== starting stamina value
 
 func _ready() -> void:
-	timer_on = true
+	is_timer_on = true
+	pass
+	
+func set_current_time(time: float) -> void:
+	printerr("accessed private method! Tried to set _time = %1.1f" % time)
 
+func get_current_time() -> float:
+	return _time
 
 func _physics_process(delta: float) -> void:
 	# Movement
@@ -46,19 +50,13 @@ func _physics_process(delta: float) -> void:
 	_calculate_steering(delta)
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
+	_process_timer(delta) # player clock timer
 	
-	time_passed = _process_time(delta) # clock timer
-	
-	if Global.get_lap_counter() == 2:
-		print(time_passed)
-		timer_on = false
-
-
+	if Global.get_lap_counter() == 3:
+		is_timer_on = false
 
 	_handle_cheats()
 	_handle_debug()
-	
-
 
 func _apply_friction() -> void:
 	if velocity.length() < 5:
@@ -67,27 +65,17 @@ func _apply_friction() -> void:
 	var drag_force: Vector2 = velocity * velocity.length() * drag
 	acceleration += drag_force + friction_force
 
-"""
-Returns time_passed: String
-"""
-func _process_time(delta: float) -> String:
-	if not timer_on:				#
-		return time_str				#
-	#===========guard===============#
+func _process_timer(delta: float) -> void:
+	if not is_timer_on:
+		return
+	
 	_time += delta
-	var milli_secs := fmod(_time, 1) * 1000
-	var secs := fmod(_time, 60)
-	var mins := fmod(_time, 60 * 60) / 60
-	time_str = "%02d : %02d : %03d" % [mins, secs, milli_secs]
-	return time_str
-
 
 func _handle_cheats() -> void:
 	if infinite_stamina:
 		stamina = 1337
 	elif not infinite_stamina and stamina > max_stamina:
 		stamina = max_stamina
-		
 
 func _handle_debug() -> void:
 	$LabelContainer.visible = false
@@ -95,7 +83,6 @@ func _handle_debug() -> void:
 		$LabelContainer.global_rotation = 0
 		$LabelContainer.visible = true
 		$LabelContainer/SpeedLabel.text = str("%3.1f" % velocity.length())
-
 
 func _get_input() -> void:
 	var turn: int = 0
@@ -115,7 +102,6 @@ func _get_input() -> void:
 	else:
 		if stamina < max_stamina:
 			stamina += stamina_regeneration
-
 
 func _calculate_steering(delta: float) -> void:
 	var rear_wheel: Vector2 = position - transform.x * wheel_base/2.0
