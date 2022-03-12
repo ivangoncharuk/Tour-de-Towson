@@ -80,7 +80,7 @@ func _handle_cheats() -> void:
 func _handle_debug() -> void:
 	$CanvasLayer/LabelContainer.visible = false
 	if debug_draw:
-		$CanvasLayer/LabelContainer.global_rotation = 0
+#		$CanvasLayer/LabelContainer/SpeedLabel.global_rotation = 0
 		$CanvasLayer/LabelContainer.visible = true
 		$CanvasLayer/LabelContainer/SpeedLabel.text = str("%3.1f" % velocity.length())
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://UI/uitheme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/FlatUI/kenneyUI-blue.tres" type="Theme" id=1]
 [ext_resource path="res://ControlPanel/ControlPanel.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -11,6 +11,7 @@ content_margin_bottom = 10.0
 bg_color = Color( 0, 0, 0, 0.458824 )
 
 [node name="ControlPanel" type="Control"]
+theme = ExtResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -29,42 +30,38 @@ __meta__ = {
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 490.0
-margin_bottom = 74.0
+margin_bottom = 92.0
 
 [node name="Speedometer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 margin_right = 480.0
-margin_bottom = 20.0
+margin_bottom = 18.0
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/Speedometer"]
-margin_right = 453.0
-margin_bottom = 20.0
+margin_right = 443.0
+margin_bottom = 18.0
 size_flags_horizontal = 3
-theme = ExtResource( 1 )
 text = "Speed"
 
 [node name="Speed" type="Label" parent="Panel/VBoxContainer/Speedometer"]
-margin_left = 457.0
+margin_left = 447.0
 margin_right = 480.0
-margin_bottom = 20.0
-theme = ExtResource( 1 )
+margin_bottom = 18.0
 text = "100"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 24.0
+margin_top = 22.0
 margin_right = 480.0
-margin_bottom = 64.0
+margin_bottom = 82.0
 
 [node name="DebugDraw" type="CheckButton" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_right = 169.0
-margin_bottom = 40.0
-theme = ExtResource( 1 )
+margin_right = 186.324
+margin_bottom = 60.251
 text = "Debug Draw"
 
 [node name="InfStamina" type="CheckButton" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_left = 173.0
-margin_right = 352.0
-margin_bottom = 40.0
-theme = ExtResource( 1 )
+margin_left = 190.0
+margin_right = 385.324
+margin_bottom = 60.251
 text = "Max Stamina"
 
 [connection signal="toggled" from="Panel/VBoxContainer/HBoxContainer/DebugDraw" to="." method="_on_DebugDraw_toggled"]
