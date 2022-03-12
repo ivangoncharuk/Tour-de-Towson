@@ -5,7 +5,7 @@
 [ext_resource path="res://ControlPanel/ControlPanel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/sprites/tilesets/kenny_racetrack_tiles.png" type="Texture" id=4]
 [ext_resource path="res://PlayerHUD/PlayerHUD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://UI/FlatUI/kenneyUI-blue.tres" type="Theme" id=6]
+[ext_resource path="res://UI/PauseMenu.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 19.6364, 0.105103, 20.7938, 128, 0, 128 )
@@ -223,9 +223,10 @@ points = PoolVector2Array( 0, 0, 128, 0, 127.978, 19.781, 0, 20.116 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
+[node name="PauseMenu" parent="HUD" instance=ExtResource( 6 )]
+
 [node name="ControlPanel" parent="HUD" instance=ExtResource( 3 )]
 visible = false
-theme = ExtResource( 6 )
 player_path = NodePath("../../Player")
 
 [node name="PlayerHUD" parent="HUD" instance=ExtResource( 5 )]
