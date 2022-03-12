@@ -19,7 +19,7 @@ func _input(_event):
 func _process(_delta):
 	if player is Player:
 		var formatting = "%1.1f"
-		_current_lap.text = formatting % Global.get_lap_counter()
+		_current_lap.text = formatting % Global._lap_counter
 		_stamina.text = formatting % player.stamina
 		_time.text = _format_time(player.get_current_time())
 
