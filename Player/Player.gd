@@ -78,11 +78,11 @@ func _handle_cheats() -> void:
 		stamina = max_stamina
 
 func _handle_debug() -> void:
-	$LabelContainer.visible = false
+	$CanvasLayer/LabelContainer.visible = false
 	if debug_draw:
-		$LabelContainer.global_rotation = 0
-		$LabelContainer.visible = true
-		$LabelContainer/SpeedLabel.text = str("%3.1f" % velocity.length())
+		$CanvasLayer/LabelContainer.global_rotation = 0
+		$CanvasLayer/LabelContainer.visible = true
+		$CanvasLayer/LabelContainer/SpeedLabel.text = str("%3.1f" % velocity.length())
 
 func _get_input() -> void:
 	var turn: int = 0
