@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/bike.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
-[ext_resource path="res://Assets/fonts/font_x20.tres" type="DynamicFont" id=3]
 
 [sub_resource type="ParticlesMaterial" id=2]
 flag_disable_z = true
@@ -43,18 +42,20 @@ shape = SubResource( 1 )
 current = true
 zoom = Vector2( 2, 2 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="LabelContainer" type="Node2D" parent="."]
+[node name="LabelContainer" type="Control" parent="CanvasLayer"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="SpeedLabel" type="Label" parent="LabelContainer"]
+[node name="SpeedLabel" type="Label" parent="CanvasLayer/LabelContainer"]
 self_modulate = Color( 0.27451, 0.0745098, 0.0745098, 1 )
 margin_left = -18.0
 margin_top = -42.0
 margin_right = 22.0
 margin_bottom = -23.0
-custom_fonts/font = ExtResource( 3 )
 text = "300"
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
