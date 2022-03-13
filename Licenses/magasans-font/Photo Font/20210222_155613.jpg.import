@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/20210222_155007.jpg-0108fff5779a2cb01b4e8dfc77dd580c.stex"
+path="res://.import/20210222_155613.jpg-02e551d6c746fb2982a5dd7c93f31bb0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Licenses/magasans/Photo Font/20210222_155007.jpg"
-dest_files=[ "res://.import/20210222_155007.jpg-0108fff5779a2cb01b4e8dfc77dd580c.stex" ]
+source_file="res://Licenses/magasans-font/Photo Font/20210222_155613.jpg"
+dest_files=[ "res://.import/20210222_155613.jpg-02e551d6c746fb2982a5dd7c93f31bb0.stex" ]
 
 [params]
 
