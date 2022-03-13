@@ -32,12 +32,12 @@ export var max_stamina: float = 300
 export var stamina_regeneration: float = 0.05
 var stamina: float = max_stamina # <== starting stamina value
 
+
 func _ready() -> void:
-	is_timer_on = true
 	pass
 	
 func set_current_time(time: float) -> void:
-	printerr("accessed private method! Tried to set _time = %1.1f" % time)
+	print("set_current_time called! time = %1f" % time)
 
 func get_current_time() -> float:
 	return _time
@@ -121,3 +121,7 @@ func _calculate_steering(delta: float) -> void:
 	elif d < 0:
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
+
+
+func _on_Finish_body_entered(body: Node):
+	is_timer_on = true

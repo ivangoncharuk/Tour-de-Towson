@@ -265,3 +265,5 @@ _next_checkpoint = NodePath("../cp2")
 position = Vector2( 478, 1799 )
 scale = Vector2( 13.4442, 1 )
 _next_checkpoint = NodePath("../Finish")
+
+[connection signal="body_entered" from="Checkpoints/Finish" to="Player" method="_on_Finish_body_entered"]
