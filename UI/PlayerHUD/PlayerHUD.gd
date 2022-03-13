@@ -19,12 +19,12 @@ func _input(_event):
 func _process(_delta):
 	if player is Player:
 		var formatting = "%1.1f"
-		_current_lap.text = formatting % Global._lap_counter
+		_current_lap.text = "%1d" % Global._lap_counter
 		_stamina.text = formatting % player.stamina
 		_time.text = _format_time(player.get_current_time())
 
 func _format_time(time: float) -> String:
-	var mils := fmod(time, 1) * 1000
+#	var mils := fmod(time, 1) * 1000
 	var secs := fmod(time, 60)
 	var mins := fmod(time, 60 * 60) / 60
-	return "%02d : %02d : %03d" % [mins, secs, mils]
+	return "%02d : %02d" % [mins, secs]
