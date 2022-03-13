@@ -8,6 +8,7 @@ The Tour de France, running since 1903, is one of the most difficult and impress
 ### Modern Tour De France
 - 23 days
   - 21 stages
+  - each stage has around 5-6 hours of travel time
   - 2 rest days
     - typically in the first and second weekend of racing
 - around 3500 km or 2000 mi in length
@@ -27,7 +28,7 @@ The Tour de France, running since 1903, is one of the most difficult and impress
     - between 3000-6000 m of climbing elevation gain
     - located in the alps
     - most influencial, only the best climbers can contest for stage win
-  - individual time trial stages
+  - individual time trial stages (ITT's)
     - some of the most important
     - demanding short courses
     - can occur 1 to 3 times per tour
@@ -35,7 +36,23 @@ The Tour de France, running since 1903, is one of the most difficult and impress
     - ITTs vary between 10-40 km
     - some are extremely flat, some are hilly, sometimes there are mountain climbs
   - team time trial stages
-    - still working on the README...
+    - similar format to ITTs
+    - each team is a group of 8 riders under one sponsor
+    - time stops after the first four riders cross finish line
+    - not as common as other types of stages, i.e. havent been featured in the tour since 2019
+- prizes
+  - the Maillot jaune (yellow jersey)
+    - worn by the race leader, has the least cummulative time throughout all the stages that has been contested so far
+    - winner of the Maillot jaune is the winner of the tour
+  - the Green jersey
+    - typically sprinters wear this one
+  - the Polka-dot jersey
+    - top rider in the mountains
+  - the white jersey
+    - similar to yellow jersey, uses cummulative time
+    - only for young riders under age 25
+  - top riders are so competitively close, the tour can finish within a matter of minutes or even seconds
+    - last few stages extremely important
 
 
 Top-down bike pixel art game for Towson Game Design Club. Inspired[^tourdefrance-gameplay] by the Tour-De-France, you will be controlling a bicyclist competing against other bicyclists or AI's around the city of Towson, Maryland (*or other locations*). With unqiue gameplay and control mechanics like the [Peleton](https://en.wikipedia.org/wiki/Peloton)[^visualization], potentially being able to coordinate with a team to perform a [double pased line](https://youtu.be/h7wPa1Hl5ZA?t=361 "The Tour De France Explained in Animation"), this game is a personal side project and my first *seriously taken* shot at a fun video-game. 
@@ -67,6 +84,7 @@ alt="Tour de France 2020 Gameplay (PS4 HD) [1080p60FPS]" width="60" height="45" 
 - Plan and create an elegant UI theme
 - Implement real bike physics
 - Implement Tour De France scoring system
+- Implement graphics for drafting, where [breakaways](https://www.youtube.com/watch?v=su0KtKDQyqE) are key in order to win
 
 ## Physics [*source*](https://www.real-world-physics-problems.com/bicycle-physics.html)
 
@@ -145,8 +163,3 @@ We need to have a method of how much energy is required for the player to turn t
 - [ ] Contributor.md file (for contributor credit)
 - [ ] Create project game design document and integrate it with github.
 - [ ] Create theme for UI
-
-### Current sneak peek of the game
-[Sneak Peak]()
-
-
