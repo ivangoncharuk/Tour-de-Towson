@@ -5,7 +5,7 @@ var SettingSlider = preload("res://UI/ControlPanel/SettingSlider.tscn")
 var player = null
 
 
-var car_settings = [
+var car_settings := [
 	'traction_fast',
 	'traction_slow',
 	'engine_power',
@@ -14,7 +14,6 @@ var car_settings = [
 	'drag',
 	'slip_speed',
 	'steering_angle',
-	'max_stamina',
 	]
 
 
@@ -26,11 +25,11 @@ var ranges = {
 	'friction': 		[-1.0, -0.01, 0.01],
 	'drag': 			[-0.1, 0, 0.001],
 	'slip_speed': 		[100, 1500, 10],
-	'steering_angle': 	[0, 45, 1],
-	'max_stamina':		[0, 1000, 1]}
+	'steering_angle': 	[0, 45, 1], 	}
 
 
 func _ready() -> void:
+	visible = false
 	# if there is no player_path
 	if not player_path:
 		return
@@ -59,7 +58,7 @@ func _on_Value_changed(value, node) -> void:
 
 func _input(event):
 	# Pressing tab hides the panel
-	if event.is_action_pressed("ui_focus_next"):
+	if event.is_action_pressed("toggle_control_panel"):
 		visible = !visible
 
 
@@ -67,19 +66,26 @@ func _process(_delta) -> void:
 	if not player:
 		return
 		
-	# progress bar needs updating
-	var progress_bar: ProgressBar = $Panel/VBoxContainer/Speedometer/ProgressBar
-	progress_bar.max_value = 400
-	progress_bar.value = player.velocity.length()
-	# replaces this:
-#		$Panel/VBoxContainer/Speedometer/Speed.text = "%3.1f" % player.velocity.length()
+	# make this pattern for more values
+	var v_label: Label = $Panel/VBoxContainer/Velocity/Label
+	var v_progress: ProgressBar = $Panel/VBoxContainer/Velocity/ProgressBar
+	var v_progress_label: Label = $Panel/VBoxContainer/Velocity/ProgressBar/Label
+	v_label.text = "Velocity"
+	v_progress.max_value = 550
+	v_progress.value = player.velocity.length()
+	v_progress_label.text = str("%1.0f / %d" % [player.velocity.length(), v_progress.max_value])
 
-
-func _on_InfStamina_toggled(button_pressed: bool) -> void:
-	if player:
-		player.infinite_stamina = button_pressed
-
+	var a_label: Label = $Panel/VBoxContainer/Acceleration/Label
+	var a_progress: ProgressBar = $Panel/VBoxContainer/Acceleration/ProgressBar
+	var a_progress_label: Label = $Panel/VBoxContainer/Acceleration/ProgressBar/Label
+	a_label.text = "Acceleration"
+	a_progress.value = player.acceleration.length()
+	a_progress.max_value = 1000
+	a_progress_label.text = str("%1.0f / %d" % [player.acceleration.length(), a_progress.max_value])
+	
 
 func _on_DebugDraw_toggled(button_pressed: bool) -> void:
-	if player:
-		player.debug_draw = button_pressed
+	if not player:
+		return
+
+	player.debug_draw = button_pressed

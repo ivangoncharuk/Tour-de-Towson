@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://UI/ui-resources/kenneyUI-blue.tres" type="Theme" id=1]
+[ext_resource path="res://UI/ui-resources/kenneyUI-green.tres" type="Theme" id=1]
 [ext_resource path="res://UI/ControlPanel/ControlPanel.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -29,47 +29,84 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 479.0
-margin_bottom = 94.0
+margin_right = 562.0
+margin_bottom = 118.0
 
-[node name="Speedometer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_right = 469.0
+[node name="Velocity" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_right = 552.0
 margin_bottom = 20.0
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/Speedometer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Velocity"]
 margin_top = 1.0
-margin_right = 65.0
+margin_right = 148.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 text = "Speed"
 
-[node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer/Speedometer"]
-margin_left = 69.0
-margin_right = 469.0
+[node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer/Velocity"]
+margin_left = 152.0
+margin_right = 552.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 400, 20 )
 rect_clip_content = true
-max_value = 2000.0
 step = 1.0
-page = 2.0
-value = 1.0
+value = 50.0
 percent_visible = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Velocity/ProgressBar"]
+modulate = Color( 1, 0.772549, 0, 1 )
+margin_left = 9.0
+margin_top = 2.0
+margin_right = 49.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.8, 0.8 )
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Acceleration" type="HBoxContainer" parent="Panel/VBoxContainer"]
 margin_top = 24.0
-margin_right = 469.0
-margin_bottom = 84.0
+margin_right = 552.0
+margin_bottom = 44.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Acceleration"]
+margin_top = 1.0
+margin_right = 148.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Acceleration"
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer/Acceleration"]
+margin_left = 152.0
+margin_right = 552.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 400, 20 )
+rect_clip_content = true
+step = 1.0
+value = 50.0
+percent_visible = false
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Acceleration/ProgressBar"]
+modulate = Color( 1, 0.772549, 0, 1 )
+margin_left = 9.0
+margin_top = 2.0
+margin_right = 49.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.8, 0.8 )
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_top = 48.0
+margin_right = 552.0
+margin_bottom = 108.0
 
 [node name="DebugDraw" type="CheckButton" parent="Panel/VBoxContainer/HBoxContainer"]
 margin_right = 186.324
 margin_bottom = 60.251
 text = "Debug Draw"
 
-[node name="InfStamina" type="CheckButton" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_left = 190.0
-margin_right = 422.324
-margin_bottom = 60.251
-text = "Infinite Stamina"
-
 [connection signal="toggled" from="Panel/VBoxContainer/HBoxContainer/DebugDraw" to="." method="_on_DebugDraw_toggled"]
-[connection signal="toggled" from="Panel/VBoxContainer/HBoxContainer/InfStamina" to="." method="_on_InfStamina_toggled"]

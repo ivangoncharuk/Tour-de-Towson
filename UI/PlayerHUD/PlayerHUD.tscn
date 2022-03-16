@@ -32,28 +32,11 @@ __meta__ = {
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 490.0
-margin_bottom = 72.0
-
-[node name="StaminaContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_right = 480.0
-margin_bottom = 18.0
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer/StaminaContainer"]
-margin_right = 443.0
-margin_bottom = 18.0
-size_flags_horizontal = 3
-text = "Stamina"
-
-[node name="Stamina" type="Label" parent="Panel/VBoxContainer/StaminaContainer"]
-margin_left = 447.0
-margin_right = 480.0
-margin_bottom = 18.0
-text = "100"
+margin_bottom = 52.0
 
 [node name="LapCounter" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 22.0
 margin_right = 480.0
-margin_bottom = 40.0
+margin_bottom = 18.0
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/LapCounter"]
 margin_right = 463.0
@@ -68,9 +51,9 @@ margin_bottom = 18.0
 text = "2"
 
 [node name="TimeContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 44.0
+margin_top = 22.0
 margin_right = 480.0
-margin_bottom = 62.0
+margin_bottom = 40.0
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/TimeContainer"]
 margin_right = 385.0
