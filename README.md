@@ -91,6 +91,25 @@ The equation for the lean angle: <br />![equation](https://www.real-world-physic
 We need to have a method of how much energy is required for the player to turn the bike pedals.
 - Force is determined by
 <br /> ![equation](https://www.real-world-physics-problems.com/images/bicycle_physics_18.png) <br />
+
+Where:
+
+* F is the force propelling the bicycle forward.      
+  * Note that F = F4
+
+C<sub>r</sub > is the coefficient of rolling resistance, which can be 0.0022 to 0.005 for bicycle tires (ref: http://en.wikipedia.org/wiki/Rolling_resistance)
+
+Cd is the drag coefficient
+
+ρ is the density of the air through which the bicycle is moving
+
+A is the projected cross-sectional area of the bike+rider perpendicular to the flow direction (that is, perpendicular to v), and v is the speed of the bicycle relative to the air
+
+
+The first term on the right side of the above equation is the gravity contribution. The second term is the rolling resistance contribution. The third term is the air drag contribution.
+
+To evaluate the power P required to propel the bicycle, multiply the above equation by v. We get P = Fv, and
+
 - Power is determined by 
 <br /> ![equation](https://www.real-world-physics-problems.com/images/bicycle_physics_19.png) <br />
 [*source*](https://www.real-world-physics-problems.com/bicycle-physics.html)
