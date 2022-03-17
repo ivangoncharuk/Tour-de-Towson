@@ -22,7 +22,7 @@ _global_script_class_icons={
 
 config/name="Tour-de-Towson"
 run/main_scene="res://UI/menus/Menu.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/icon.png"
 
 [autoload]
 
@@ -87,4 +87,4 @@ toggle_control_panel={
 [rendering]
 
 2d/snapping/use_gpu_pixel_snap=true
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://Assets/default_env.tres"

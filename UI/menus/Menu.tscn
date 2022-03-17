@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://UI/Button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/menus/Button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/menus/Menu.gd" type="Script" id=2]
 [ext_resource path="res://Assets/fonts/dogica_pixel/dogicapixelbold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/ui_themes/kenneyUI-blue.tres" type="Theme" id=4]
@@ -26,10 +26,8 @@ options_menu_path = "res://UI/OptionsMenu.tscn"
 [node name="Vbox" type="VBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 7.0
-margin_top = -131.0
-margin_right = 140.0
-margin_bottom = 3.0
+margin_top = -134.0
+margin_right = 133.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
