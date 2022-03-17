@@ -1,10 +1,10 @@
 [gd_resource type="Theme" load_steps=34 format=2]
 
-[ext_resource path="res://UI/ui-resources/UIpack_vector.svg" type="Texture" id=1]
-[ext_resource path="res://UI/ui-resources/kenvector_future.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/ui_themes/kenvector_future.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/ui_themes/UIpack_vector.svg" type="Texture" id=2]
 
 [sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 211, 240, 190, 49 )
 margin_left = 12.5436
 margin_right = 8.78053
@@ -14,7 +14,7 @@ margin_bottom = 14.2161
 [sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="StyleBoxTexture" id=3]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 1, 240, 190, 49 )
 margin_left = 12.5436
 margin_right = 8.78053
@@ -22,7 +22,7 @@ margin_top = 10.0349
 margin_bottom = 14.2161
 
 [sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 211, 240, 190, 49 )
 margin_left = 12.5436
 margin_right = 8.78053
@@ -30,7 +30,7 @@ margin_top = 10.0349
 margin_bottom = 14.2161
 
 [sub_resource type="StyleBoxTexture" id=5]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 421, 244, 190, 45 )
 margin_left = 12.5436
 margin_right = 8.78053
@@ -38,19 +38,19 @@ margin_top = 10.0349
 margin_bottom = 14.2161
 
 [sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 200, 544, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 201, 440, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 1, 440, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 0, 544, 36, 36 )
 
 [sub_resource type="StyleBoxEmpty" id=10]
@@ -62,25 +62,25 @@ region = Rect2( 0, 544, 36, 36 )
 [sub_resource type="StyleBoxEmpty" id=13]
 
 [sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 200, 644, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 200, 544, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 872, 684, 28, 42 )
 
 [sub_resource type="StyleBoxTexture" id=17]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 840, 316, 192, 6 )
 
 [sub_resource type="StyleBoxEmpty" id=18]
 
 [sub_resource type="StyleBoxTexture" id=19]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 629, 317, 194, 49 )
 margin_left = 17.1475
 margin_right = 13.718
@@ -88,11 +88,11 @@ margin_top = 12.0032
 margin_bottom = 9.43112
 
 [sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 812, 458, 28, 10 )
 
 [sub_resource type="StyleBoxTexture" id=21]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 485, 310, 100, 100 )
 margin_left = 12.3202
 margin_right = 13.3469
@@ -100,19 +100,19 @@ margin_top = 13.3469
 margin_bottom = 11.2935
 
 [sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 200, 544, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 201, 440, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 1, 440, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 0, 544, 36, 36 )
 
 [sub_resource type="StyleBoxTexture" id=26]
@@ -120,7 +120,7 @@ content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
 content_margin_bottom = 4.0
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 1, 240, 190, 49 )
 margin_left = 7.94429
 margin_right = 8.73872
@@ -132,7 +132,7 @@ content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 10.0
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 485, 310, 100, 100 )
 margin_left = 7.94429
 margin_right = 8.73872
@@ -144,7 +144,7 @@ expand_margin_bottom = 10.0
 [sub_resource type="StyleBoxTexture" id=28]
 content_margin_left = 12.0
 content_margin_top = 10.0
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 1, 310, 100, 100 )
 margin_left = 10.8072
 margin_right = 9.71325
@@ -153,17 +153,17 @@ margin_bottom = 14.7561
 axis_stretch_vertical = 1
 
 [sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 1007, 690, 39, 31 )
 
 [sub_resource type="StyleBoxTexture" id=30]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 1051, 317, 4, 100 )
 
 [sub_resource type="DynamicFont" id=31]
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 1 )
 
 [resource]
 default_font = SubResource( 31 )
