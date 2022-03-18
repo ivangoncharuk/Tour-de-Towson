@@ -1,5 +1,4 @@
 extends Control
-signal bullet_fired
 var is_paused: bool = false setget set_is_paused
 onready var control_panel_visible: bool = get_parent().get_node("ControlPanel").visible
 

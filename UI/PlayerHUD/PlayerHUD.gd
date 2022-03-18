@@ -16,7 +16,6 @@ func _input(event):
 
 func _process(_delta: float):
 	if player is Player:
-		var formatting = "%1.1f"
 		_current_lap.text = "%1d" % Global._lap_counter
 		_time.text = _format_time(player.get_current_time())
 		

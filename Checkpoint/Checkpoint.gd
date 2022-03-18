@@ -1,8 +1,10 @@
 extends Area2D
+class_name CheckPoint
 
 export (bool) var _is_active
 export (bool) var _is_finish_line
 export (NodePath) var _next_checkpoint
+
 
 func _ready() -> void:
 	pass

@@ -2,19 +2,19 @@ extends KinematicBody2D
 class_name Player
 
 
-## movement value exports ##
+### Movement Exports ###
 export (float) var traction_fast = 0.1
 export (float) var traction_slow = 0.7
-
-#forward acceleration force
+# forward acceleration force
 export (int) var engine_power = 800
 export (int) var braking = -450
 export (float) var friction = -0.5
 export (float) var drag = -0.001
 export (int) var slip_speed = 400
-export (int) var steering_angle = 5 #in degrees
+# in degrees
+export (int) var steering_angle = 5
 export (int) var max_speed_reverse = 50
-var wheel_base
+
 
 ### Movement ###
 var acceleration := Vector2.ZERO
@@ -22,18 +22,29 @@ var velocity := Vector2.ZERO
 var steer_direction: float
 
 ### Debug ###
-var debug_draw: bool = false
+var is_playerui_enabled: bool = false
 
 ### Time ###
 var _time: float = 0 setget set_current_time, get_current_time
 var is_timer_on: bool = false
 
+### Wheel Base ###
+var wheel_base
 
-onready var front_wheel_pos: Position2D = $FrontWheel
-onready var back_wheel_pos: Position2D = $BackWheel
+
+### debug ###
+# controls whether the rotation of the debug panel is locked to the player
+onready var is_playerui_rotation_locked: bool = true
+onready var player_ui_container = $PlayerUI
+
 func _ready() -> void:
-	wheel_base = abs(front_wheel_pos.position.x - back_wheel_pos.position.x)
-	
+	_calculate_wheel_base()
+
+
+func _process_debug_draw() -> void:
+
+	if is_playerui_rotation_locked:
+		player_ui_container.set_rotation(- rotation)
 
 
 func _physics_process(delta: float) -> void:
@@ -49,8 +60,8 @@ func _physics_process(delta: float) -> void:
 	
 	if Global.get_lap_counter() == 3:
 		is_timer_on = false
-	# UI
-	_handle_debug()
+		
+	_process_debug_draw()
 
 
 func _get_input() -> void:
@@ -67,7 +78,6 @@ func _get_input() -> void:
 		acceleration = transform.x * engine_power / 10
 	elif Input.is_action_pressed("brake"):
 		acceleration = transform.x * braking
-
 
 
 func _apply_friction() -> void:
@@ -99,26 +109,18 @@ func _calculate_steering(delta: float) -> void:
 	rotation = new_heading.angle()
 
 
+func _calculate_wheel_base() -> void:
+	var front_wheel_pos: Position2D = $FrontWheel
+	var back_wheel_pos: Position2D = $BackWheel
+	wheel_base = abs(front_wheel_pos.position.x - back_wheel_pos.position.x)
+
+
 func _process_timer(delta: float) -> void:
 	if not is_timer_on:
 		return
 	
 	_time += delta
 
-
-
-func _handle_debug() -> void:
-	var label_container: Control = $LabelContainer
-	var accel_label: Label = $LabelContainer/AccelLabel
-	
-	if not debug_draw:
-		label_container.visible = false
-		return
-	
-	label_container.set_rotation(- rotation)
-	var speed_label = $LabelContainer/SpeedLabel
-	label_container.visible = true
-	speed_label.text = str("%3.1f" % velocity.length())
 
 func set_current_time(time: float) -> void:
 	print("set_current_time called! time = %1f" % time)
@@ -128,5 +130,6 @@ func get_current_time() -> float:
 	return _time
 
 
-func _on_Finish_body_entered(body: Node):
+func _on_Finish_body_entered(_body: Node):
+	# _body.to_string() -> "Player:[KinematicBody2D:2109]"
 	is_timer_on = true

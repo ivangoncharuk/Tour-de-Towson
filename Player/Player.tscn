@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/sprites/player/player_prototype.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
-[ext_resource path="res://Assets/ui_themes/kenneyUI-green.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/ui_themes/kenneyUI-blue.tres" type="Theme" id=3]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -23,25 +23,41 @@ position = Vector2( -7, 0 )
 build_mode = 1
 polygon = PoolVector2Array( -23.8687, -11, -6.86875, -12, 5.13125, -13, 10.1313, -21, 12.1313, -22, 39.1312, -19, 44.1312, -16, 44.1312, -3, 60.1312, -2, 60.1312, 1, 44.1312, 2, 44.1312, 15, 40.1312, 17, 27.1313, 21, 12.1313, 22, 10.1313, 21, 5.13125, 12, -6.86875, 11, -23.8687, 10, -27.8687, 3, -44.8688, 1, -44.8688, -2, -27.8687, -4 )
 
-[node name="LabelContainer" type="Control" parent="."]
-theme = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SpeedLabel" type="Label" parent="LabelContainer"]
-self_modulate = Color( 0.27451, 0.0745098, 0.0745098, 1 )
-margin_left = 50.0
-margin_top = -50.0
-margin_right = 90.0
-margin_bottom = -31.0
-text = "speed"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
 [node name="FrontWheel" type="Position2D" parent="."]
 position = Vector2( 35, -1 )
 
 [node name="BackWheel" type="Position2D" parent="."]
 position = Vector2( -35, -1 )
+
+[node name="PlayerUI" type="Control" parent="."]
+margin_left = -20.0
+margin_top = -100.0
+margin_right = 58.0
+margin_bottom = -80.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugLabels" type="VBoxContainer" parent="PlayerUI"]
+margin_top = 0.5
+margin_right = 78.0
+margin_bottom = 19.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerUI/DebugLabels"]
+margin_right = 126.0
+margin_bottom = 12.0
+
+[node name="Property" type="Label" parent="PlayerUI/DebugLabels/HBoxContainer"]
+margin_right = 46.0
+margin_bottom = 12.0
+text = "key"
+
+[node name="Value" type="Label" parent="PlayerUI/DebugLabels/HBoxContainer"]
+margin_left = 50.0
+margin_right = 126.0
+margin_bottom = 12.0
+text = "value"

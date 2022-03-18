@@ -17,7 +17,7 @@ var car_settings := [
 	]
 
 
-var ranges = {
+var ranges := {
 	'traction_fast': 	[0, 1.0, 0.01],
 	'traction_slow': 	[0, 1.0, 0.01],
 	'engine_power': 	[500, 2000, 10],
@@ -29,6 +29,8 @@ var ranges = {
 
 
 func _ready() -> void:
+	
+	# off by default
 	visible = false
 	# if there is no player_path
 	if not player_path:
@@ -88,4 +90,4 @@ func _on_DebugDraw_toggled(button_pressed: bool) -> void:
 	if not player:
 		return
 
-	player.debug_draw = button_pressed
+	player.is_playerui_enabled = button_pressed
