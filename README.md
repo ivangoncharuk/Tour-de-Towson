@@ -1,7 +1,9 @@
 # Tour-de-Towson
 
-Tour-de-Towson is my take on the Tour de France in a top-down 2-D Pixel art game. The game will simulate the modern rules of the Tour De France competition, with the twist of being set in the state of Maryland. Players will need to use real-world tactics used in the tour in order to come out on top.
-----
+
+ Tour-de-Towson is my take on the Tour de France in a top-down 2-D Pixel art game. The game will simulate the modern rules of the Tour De France competition, with the twist of being set in the state of Maryland. Players will need to use real-world tactics used in the tour in order to come out on top.
+
+
 ## Goals
 - Create the racing mechanic
   - A map with a player and AI's racing each other for the best time.
@@ -19,7 +21,6 @@ Tour-de-Towson is my take on the Tour de France in a top-down 2-D Pixel art game
 - Implement real bike physics
 - Implement Tour De France scoring system
 - Implement graphics for drafting, where [breakaways](https://www.youtube.com/watch?v=su0KtKDQyqE) are key in order to win
----
 
 # Implementation
 - create a system for handling how much energy a biker is exerting
@@ -63,15 +64,14 @@ We need to have a method of how much energy is required for the player to turn t
 <br /> ![equation](https://www.real-world-physics-problems.com/images/bicycle_physics_19.png) <br />
 [*source*](https://www.real-world-physics-problems.com/bicycle-physics.html)
 
-----
+
 # The Tour de France
 The Tour de France, running since 1903, is one of the most difficult and impressive road-bike races throughout the year. It takes the competitors through 21 stages of the French country-side. Here is some useful information compiled from this [YouTube video](https://www.youtube.com/watch?v=5RH3LELmEWE "The Tour De France Explained | The stages, riders, and teams (2021)"):
 ## The modern Tour De France
 - 23 days
   - 21 stages
   - each stage has around 5-6 hours of travel time
-  - 2 rest days
-    - typically in the first and second weekend of racing
+  - 2 rest days (typically in the first and second weekend of racing)
 - around 3500 km or 2000 mi in length
 - top riders are so competitively close, the tour can finish within a matter of minutes or even seconds
   - last few stages extremely important
@@ -116,4 +116,3 @@ worn by the race leader, has the least cumulative time throughout all the stages
 #### the white jersey
   - similar to yellow jersey, uses cumulative time
   - only for young riders under age 25
-
