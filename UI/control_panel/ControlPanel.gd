@@ -1,7 +1,7 @@
 extends Control
 
 export (NodePath) var player_path # Drag in the thing you want to control
-var SettingSlider = preload("res://UI/ControlPanel/SettingSlider.tscn")
+var SettingSlider = preload("res://ui/control_panel/SettingSlider.tscn")
 var player = null
 
 

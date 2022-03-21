@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Player/Player.gd"
+"path": "res://player/Player.gd"
 } ]
 _global_script_class_icons={
 "CheckPoint": "",
@@ -27,12 +27,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Tour-de-Towson"
-run/main_scene="res://UI/menus/Menu.tscn"
+run/main_scene="res://ui/menus/Menu.tscn"
 config/icon="res://assets/icon.png"
 
 [autoload]
 
-Global="*res://Singletons/Global.gd"
+Global="*res://autoload/Global.gd"
 
 [display]
 
