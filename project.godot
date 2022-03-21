@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "CheckPoint",
+"language": "GDScript",
+"path": "res://Checkpoint/CheckPoint.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player/Player.gd"
 } ]
 _global_script_class_icons={
+"CheckPoint": "",
 "Player": ""
 }
 
@@ -22,7 +28,7 @@ _global_script_class_icons={
 
 config/name="Tour-de-Towson"
 run/main_scene="res://UI/menus/Menu.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/icon.png"
 
 [autoload]
 
@@ -69,14 +75,14 @@ pause={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
-toggle_hud={
+toggle_player_hud={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777245,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777218,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 toggle_control_panel={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777246,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
@@ -87,4 +93,4 @@ toggle_control_panel={
 [rendering]
 
 2d/snapping/use_gpu_pixel_snap=true
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://Assets/default_env.tres"

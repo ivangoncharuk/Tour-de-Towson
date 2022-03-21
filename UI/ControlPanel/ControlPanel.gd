@@ -17,7 +17,7 @@ var car_settings := [
 	]
 
 
-var ranges = {
+var ranges := {
 	'traction_fast': 	[0, 1.0, 0.01],
 	'traction_slow': 	[0, 1.0, 0.01],
 	'engine_power': 	[500, 2000, 10],
@@ -29,7 +29,6 @@ var ranges = {
 
 
 func _ready() -> void:
-	visible = false
 	# if there is no player_path
 	if not player_path:
 		return
@@ -54,12 +53,6 @@ func _ready() -> void:
 func _on_Value_changed(value, node) -> void:
 	player.set(node.name, value)
 	node.get_node("Value").text = str(value)
-
-
-func _input(event):
-	# Pressing tab hides the panel
-	if event.is_action_pressed("toggle_control_panel"):
-		visible = !visible
 
 
 func _process(_delta) -> void:
@@ -88,4 +81,4 @@ func _on_DebugDraw_toggled(button_pressed: bool) -> void:
 	if not player:
 		return
 
-	player.debug_draw = button_pressed
+	player.is_playerui_enabled = button_pressed

@@ -9,16 +9,20 @@ func _ready():
 
 
 func transition_to(_next_scene: NodePath) -> void:
-	# Plays the Fade animation and wait until it finishes
+		
+	# Here you can play an animation when you 'transition' to a new scene
+	# example:
 #	_anim_player.play("Fade")
 #	yield(_anim_player, "animation_finished")
-	# Changes the scene
-	get_tree().change_scene(_next_scene)
+
+	# Changes the scene and prints error message
+	if get_tree().change_scene(_next_scene) != OK:
+		print("An unexpected error occured when trying to transition scenes")
+
 
 # changes scene to the first level
 func _on_Start_pressed() -> void:
 	transition_to(level_path)
-	get_tree().change_scene("res://Levels/Level.tscn")
 
 
 # adds the options_menu scene as a child
