@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=9 format=2]
 
-[ext_resource path="res://Assets/sprites/tilesets/kenny_racetrack_tiles.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/tilesets/kenny_racetrack_tiles.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 19.6364, 0.105103, 20.7938, 128, 0, 128 )

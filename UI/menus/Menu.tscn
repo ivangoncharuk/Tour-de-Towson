@@ -2,8 +2,8 @@
 
 [ext_resource path="res://ui/menus/Button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/menus/Menu.gd" type="Script" id=2]
-[ext_resource path="res://Assets/fonts/dogica_pixel/dogicapixelbold.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Assets/ui_themes/kenneyUI-blue.tres" type="Theme" id=4]
+[ext_resource path="res://assets/fonts/dogica_pixel/dogicapixelbold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/ui_themes/kenneyUI-blue.tres" type="Theme" id=4]
 
 [sub_resource type="DynamicFont" id=2]
 extra_spacing_top = 10
