@@ -21,3 +21,4 @@ func _on_Checkpoint_body_entered(_body: Node) -> void:
 
 func activate() -> void:
 	_is_active = true
+
