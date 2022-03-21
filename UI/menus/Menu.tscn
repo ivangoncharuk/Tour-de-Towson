@@ -23,6 +23,22 @@ __meta__ = {
 level_path = "res://Levels/Level.tscn"
 options_menu_path = "res://UI/menus/OptionsMenu.tscn"
 
+[node name="Title" type="Label" parent="."]
+margin_left = -1.0
+margin_top = 13.0
+margin_right = 283.0
+margin_bottom = 45.0
+rect_scale = Vector2( 1.80119, 1.92609 )
+custom_colors/font_color_shadow = Color( 0.0627451, 0.0392157, 0.0392157, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 2 )
+text = "Tour De Towson"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Vbox" type="VBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -55,22 +71,6 @@ margin_bottom = 116.251
 focus_neighbour_bottom = NodePath("../Start")
 theme = null
 text = "Quit"
-
-[node name="Title" type="Label" parent="."]
-margin_left = -1.0
-margin_top = 13.0
-margin_right = 283.0
-margin_bottom = 45.0
-rect_scale = Vector2( 1.80119, 1.92609 )
-custom_colors/font_color_shadow = Color( 0.0627451, 0.0392157, 0.0392157, 1 )
-custom_constants/shadow_offset_x = 3
-custom_constants/shadow_offset_y = 2
-custom_constants/shadow_as_outline = 0
-custom_fonts/font = SubResource( 2 )
-text = "Tour De Towson"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="pressed" from="Vbox/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Vbox/Options" to="." method="_on_Options_pressed"]

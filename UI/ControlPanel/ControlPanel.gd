@@ -29,9 +29,6 @@ var ranges := {
 
 
 func _ready() -> void:
-	
-	# off by default
-	visible = false
 	# if there is no player_path
 	if not player_path:
 		return
@@ -56,12 +53,6 @@ func _ready() -> void:
 func _on_Value_changed(value, node) -> void:
 	player.set(node.name, value)
 	node.get_node("Value").text = str(value)
-
-
-func _input(event):
-	# Pressing tab hides the panel
-	if event.is_action_pressed("toggle_control_panel"):
-		visible = !visible
 
 
 func _process(_delta) -> void:

@@ -21,9 +21,6 @@ var acceleration := Vector2.ZERO
 var velocity := Vector2.ZERO
 var steer_direction: float
 
-### Debug ###
-var is_playerui_enabled: bool = false
-
 ### Time ###
 var _time: float = 0 setget set_current_time, get_current_time
 var is_timer_on: bool = false

@@ -18,8 +18,8 @@ __meta__ = {
 }
 
 [node name="Panel" type="PanelContainer" parent="."]
-margin_right = 489.0
-margin_bottom = 104.0
+margin_right = 572.0
+margin_bottom = 64.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
@@ -30,7 +30,7 @@ __meta__ = {
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 562.0
-margin_bottom = 94.0
+margin_bottom = 54.0
 
 [node name="Velocity" type="HBoxContainer" parent="Panel/VBoxContainer"]
 margin_right = 552.0
@@ -38,16 +38,16 @@ margin_bottom = 20.0
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/Velocity"]
 margin_top = 1.0
-margin_right = 148.0
+margin_right = 248.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 text = "Speed"
 
 [node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer/Velocity"]
-margin_left = 152.0
+margin_left = 252.0
 margin_right = 552.0
 margin_bottom = 20.0
-rect_min_size = Vector2( 400, 20 )
+rect_min_size = Vector2( 300, 20 )
 rect_clip_content = true
 step = 1.0
 value = 50.0
@@ -72,16 +72,16 @@ margin_bottom = 44.0
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/Acceleration"]
 margin_top = 1.0
-margin_right = 148.0
+margin_right = 248.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 text = "Acceleration"
 
 [node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer/Acceleration"]
-margin_left = 152.0
+margin_left = 252.0
 margin_right = 552.0
 margin_bottom = 20.0
-rect_min_size = Vector2( 400, 20 )
+rect_min_size = Vector2( 300, 20 )
 rect_clip_content = true
 step = 1.0
 value = 50.0
