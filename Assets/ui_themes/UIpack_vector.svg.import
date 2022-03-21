@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bike.png-bb0665da508b999968f25aba5de4155a.stex"
+path="res://.import/UIpack_vector.svg-9bd29de993b0df4fa1280c1268994092.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/bike.png"
-dest_files=[ "res://.import/bike.png-bb0665da508b999968f25aba5de4155a.stex" ]
+source_file="res://assets/ui_themes/UIpack_vector.svg"
+dest_files=[ "res://.import/UIpack_vector.svg-9bd29de993b0df4fa1280c1268994092.stex" ]
 
 [params]
 

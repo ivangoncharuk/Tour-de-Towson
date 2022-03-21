@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/double_lane_road.png-e88cd0601b6765998426dd4f389b2b58.stex"
+path="res://.import/double_lane_road.png-68e2058ea20c06c04cf55f17d2b69bb9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/prototype/double_lane_road.png"
-dest_files=[ "res://.import/double_lane_road.png-e88cd0601b6765998426dd4f389b2b58.stex" ]
+source_file="res://assets/sprites/prototype/double_lane_road.png"
+dest_files=[ "res://.import/double_lane_road.png-68e2058ea20c06c04cf55f17d2b69bb9.stex" ]
 
 [params]
 

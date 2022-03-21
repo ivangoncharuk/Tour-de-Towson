@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://UI/PlayerHUD/PlayerHUD.gd" type="Script" id=1]
-[ext_resource path="res://UI/ui-resources/kenneyUI-blue.tres" type="Theme" id=2]
+[ext_resource path="res://ui/player_hud/PlayerHUD.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui_themes/kenneyUI-blue.tres" type="Theme" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 10.0
@@ -32,54 +32,37 @@ __meta__ = {
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 490.0
-margin_bottom = 72.0
+margin_bottom = 52.0
 
-[node name="StaminaContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="LapContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 margin_right = 480.0
-margin_bottom = 18.0
+margin_bottom = 12.0
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/StaminaContainer"]
-margin_right = 443.0
-margin_bottom = 18.0
-size_flags_horizontal = 3
-text = "Stamina"
-
-[node name="Stamina" type="Label" parent="Panel/VBoxContainer/StaminaContainer"]
-margin_left = 447.0
-margin_right = 480.0
-margin_bottom = 18.0
-text = "100"
-
-[node name="LapCounter" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 22.0
-margin_right = 480.0
-margin_bottom = 40.0
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer/LapCounter"]
-margin_right = 463.0
-margin_bottom = 18.0
+[node name="Label" type="Label" parent="Panel/VBoxContainer/LapContainer"]
+margin_right = 460.0
+margin_bottom = 12.0
 size_flags_horizontal = 3
 text = "Current Lap"
 
-[node name="CurrentLap" type="Label" parent="Panel/VBoxContainer/LapCounter"]
-margin_left = 467.0
+[node name="CurrentLap" type="Label" parent="Panel/VBoxContainer/LapContainer"]
+margin_left = 464.0
 margin_right = 480.0
-margin_bottom = 18.0
+margin_bottom = 12.0
 text = "2"
 
 [node name="TimeContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 44.0
+margin_top = 16.0
 margin_right = 480.0
-margin_bottom = 62.0
+margin_bottom = 28.0
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/TimeContainer"]
-margin_right = 385.0
-margin_bottom = 18.0
+margin_right = 348.0
+margin_bottom = 12.0
 size_flags_horizontal = 3
 text = "Time"
 
 [node name="CurrentTime" type="Label" parent="Panel/VBoxContainer/TimeContainer"]
-margin_left = 389.0
+margin_left = 352.0
 margin_right = 480.0
-margin_bottom = 18.0
+margin_bottom = 12.0
 text = "0 : 00 : 00"
