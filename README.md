@@ -1,38 +1,6 @@
 # Tour-de-Towson
 
 Tour-de-Towson is my take on the Tour de France in a top-down 2-D Pixel art game. The game will simulate the modern rules of the Tour De France competition, with the twist of being set in the state of Maryland. Players will need to use real-world tactics used in the tour in order to come out on top.
-
-
-## Development Board
-### Start Menu
-- [ ] Mode Switcher(race against AI or multiplayer)
-- [ ] Map/Level Selector
-### Game-play
-- [x] Countdown timer
-- [x] A way to pause the game
-- [ ] A winning game state
-- [ ] Update UI to reflect the state of the game
-- [ ] Implement way to save/load the game
-- [ ] Create a test tracks
-- [ ] [Create AI that follows context based steering](http://kidscancode.org/godot_recipes/ai/context_map/ "Context Based Steering")
-- [ ] Create controls and game logic that can imitate a tour-de-france type game[^tourdefrance-gameplay]
-- [ ] Implement multiplayer (decision: peer-to-peer or server-client)
-
- 
-
-### Sound
-- [x] Some music for the game. Can be used for the start screen or anything else (**undecided**). *Credit to IcySoap for music*
-- [ ] General sound effects
-
-### Visuals
-- [ ] Artwork / Animation for player states (moving, idle, turning (accurate leaning)
-- [ ] Tiles for map
-- [ ] Update UI to match the feel of the game
-
-### Misc
-- [ ] set up `Contributor.md` file 
-- [ ] Create project game design document and integrate it with github.
-- [ ] Create theme for UI
 ----
 ## Goals
 - Create the racing mechanic
