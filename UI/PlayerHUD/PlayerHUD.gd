@@ -2,7 +2,7 @@ extends Control
 export (NodePath) var player_path
 var player = null
 
-onready var _current_lap: Label = $Panel/VBoxContainer/LapCounter/CurrentLap
+onready var _current_lap: Label = $Panel/VBoxContainer/LapContainer/CurrentLap
 onready var _time: Label = $Panel/VBoxContainer/TimeContainer/CurrentTime
 
 func _ready():
