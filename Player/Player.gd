@@ -41,9 +41,7 @@ func _physics_process(delta: float) -> void:
 	_calculate_steering(delta)
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
-	
-	_process_timer(delta) # player clock timer
-	
+	_process_timer(delta) 
 	if Global.get_lap_counter() == 3:
 		is_timer_on = false
 		
@@ -85,7 +83,6 @@ func _calculate_steering(delta: float) -> void:
 	if velocity.length() > slip_speed:
 		traction = traction_fast
 	var dot = new_heading.dot(velocity.normalized())
-
 	if dot > 0:
 		velocity = velocity.linear_interpolate(new_heading * velocity.length(), traction)
 	elif dot < 0:
@@ -98,11 +95,12 @@ func _calculate_wheel_base() -> void:
 	var back_wheel_pos: Position2D = $BackWheel
 	wheel_base = abs(front_wheel_pos.position.x - back_wheel_pos.position.x)
 
-
+"""
+player clock timer
+"""
 func _process_timer(delta: float) -> void:
 	if not is_timer_on:
 		return
-	
 	_time += delta
 
 
