@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/left-foot-down.png-140f7855cfd5e3795838dd1038a34737.stex"
+path="res://.import/left-foot-down.png-5682fe693288581ce8f8ccf91ea6b6e2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/aseprite/player/animation-reference16f-png/left-foot-down.png"
-dest_files=[ "res://.import/left-foot-down.png-140f7855cfd5e3795838dd1038a34737.stex" ]
+source_file="res://assets/aseprite/player/animation-reference16f-png/left-foot-down.png"
+dest_files=[ "res://.import/left-foot-down.png-5682fe693288581ce8f8ccf91ea6b6e2.stex" ]
 
 [params]
 

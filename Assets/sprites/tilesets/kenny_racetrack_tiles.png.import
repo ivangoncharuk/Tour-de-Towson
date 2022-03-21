@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kenny_racetrack_tiles.png-e393c5fd40b69b9532e5a567e0b48111.stex"
+path="res://.import/kenny_racetrack_tiles.png-3bde856647c970a62281b2efe31de24a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/tilesets/kenny_racetrack_tiles.png"
-dest_files=[ "res://.import/kenny_racetrack_tiles.png-e393c5fd40b69b9532e5a567e0b48111.stex" ]
+source_file="res://assets/sprites/tilesets/kenny_racetrack_tiles.png"
+dest_files=[ "res://.import/kenny_racetrack_tiles.png-3bde856647c970a62281b2efe31de24a.stex" ]
 
 [params]
 

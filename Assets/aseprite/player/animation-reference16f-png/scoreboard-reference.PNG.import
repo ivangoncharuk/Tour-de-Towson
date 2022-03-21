@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/scoreboard-reference.PNG-679744204cc4c48a98395719c432a593.stex"
+path="res://.import/scoreboard-reference.PNG-9de1876165f3b336b8d9b9daea50ec84.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/aseprite/player/animation-reference16f-png/scoreboard-reference.PNG"
-dest_files=[ "res://.import/scoreboard-reference.PNG-679744204cc4c48a98395719c432a593.stex" ]
+source_file="res://assets/aseprite/player/animation-reference16f-png/scoreboard-reference.PNG"
+dest_files=[ "res://.import/scoreboard-reference.PNG-9de1876165f3b336b8d9b9daea50ec84.stex" ]
 
 [params]
 

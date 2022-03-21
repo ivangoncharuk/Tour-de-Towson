@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kenny_objects.png-6a36214a8f829b08f48f9939dec8fb91.stex"
+path="res://.import/kenny_objects.png-7ba4275eea009111bce998a058d9b4ac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/tilesets/kenny_objects.png"
-dest_files=[ "res://.import/kenny_objects.png-6a36214a8f829b08f48f9939dec8fb91.stex" ]
+source_file="res://assets/sprites/tilesets/kenny_objects.png"
+dest_files=[ "res://.import/kenny_objects.png-7ba4275eea009111bce998a058d9b4ac.stex" ]
 
 [params]
 
