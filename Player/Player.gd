@@ -32,19 +32,8 @@ var is_timer_on: bool = false
 var wheel_base
 
 
-### debug ###
-# controls whether the rotation of the debug panel is locked to the player
-onready var is_playerui_rotation_locked: bool = true
-onready var player_ui_container = $PlayerUI
-
 func _ready() -> void:
 	_calculate_wheel_base()
-
-
-func _process_debug_draw() -> void:
-
-	if is_playerui_rotation_locked:
-		player_ui_container.set_rotation(- rotation)
 
 
 func _physics_process(delta: float) -> void:
@@ -61,8 +50,6 @@ func _physics_process(delta: float) -> void:
 	if Global.get_lap_counter() == 3:
 		is_timer_on = false
 		
-	_process_debug_draw()
-
 
 func _get_input() -> void:
 	var turn: int = 0

@@ -38,26 +38,3 @@ theme = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="DebugLabels" type="VBoxContainer" parent="PlayerUI"]
-margin_top = 0.5
-margin_right = 78.0
-margin_bottom = 19.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PlayerUI/DebugLabels"]
-margin_right = 126.0
-margin_bottom = 12.0
-
-[node name="Property" type="Label" parent="PlayerUI/DebugLabels/HBoxContainer"]
-margin_right = 46.0
-margin_bottom = 12.0
-text = "key"
-
-[node name="Value" type="Label" parent="PlayerUI/DebugLabels/HBoxContainer"]
-margin_left = 50.0
-margin_right = 126.0
-margin_bottom = 12.0
-text = "value"
