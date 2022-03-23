@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Checkpoint/CheckPoint.tscn" type="PackedScene" id=1]
+[ext_resource path="res://checkpoint/CP.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/control_panel/ControlPanel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/tilemap/test_tilemap.tres" type="TileSet" id=4]
@@ -47,20 +47,15 @@ visible = false
 position = Vector2( 2778, 479 )
 rotation = 1.5708
 scale = Vector2( 13.6282, 1.03936 )
-_is_active = true
-_is_finish_line = true
-_next_checkpoint = NodePath("../cp1")
 
 [node name="cp1" parent="Checkpoints" instance=ExtResource( 1 )]
 position = Vector2( 2778, 2589 )
 rotation = 1.5708
 scale = Vector2( 13.56, 1 )
-_next_checkpoint = NodePath("../cp2")
 
 [node name="cp2" parent="Checkpoints" instance=ExtResource( 1 )]
 position = Vector2( 478, 1799 )
 scale = Vector2( 13.4442, 1 )
-_next_checkpoint = NodePath("../Finish")
 
 [connection signal="pressed" from="LevelManager/CanvasLayer/PauseMenu/CenterContainer/VBoxContainer/Resume" to="LevelManager" method="_on_Resume_pressed"]
 [connection signal="pressed" from="LevelManager/CanvasLayer/PauseMenu/CenterContainer/VBoxContainer/Quit" to="LevelManager" method="_on_Quit_pressed"]

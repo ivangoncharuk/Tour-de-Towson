@@ -13,22 +13,47 @@ extra_spacing_space = 10
 font_data = ExtResource( 3 )
 
 [node name="Menu" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -180.0
+margin_right = 640.0
+margin_bottom = 180.0
 theme = ExtResource( 4 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-level_path = "res://Levels/Level.tscn"
-options_menu_path = "res://UI/menus/OptionsMenu.tscn"
+level_path = "res://levels/Level.tscn"
+options_menu_path = "res://ui/menus/OptionsMenu.tscn"
+
+[node name="Start" parent="." instance=ExtResource( 1 )]
+margin_top = 36.0
+margin_right = 284.0
+margin_bottom = 72.251
+focus_neighbour_top = NodePath("../Quit")
+theme = null
+text = "Start"
+
+[node name="Options" parent="." instance=ExtResource( 1 )]
+margin_top = 76.0
+margin_right = 284.0
+margin_bottom = 112.251
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Start")
+theme = null
+text = "Options"
+
+[node name="Quit" parent="." instance=ExtResource( 1 )]
+margin_top = 116.0
+margin_right = 284.0
+margin_bottom = 152.251
+focus_neighbour_bottom = NodePath("../Start")
+theme = null
+text = "Quit"
 
 [node name="Title" type="Label" parent="."]
-margin_left = -1.0
-margin_top = 13.0
-margin_right = 283.0
-margin_bottom = 45.0
-rect_scale = Vector2( 1.80119, 1.92609 )
+margin_right = 284.0
+margin_bottom = 32.0
 custom_colors/font_color_shadow = Color( 0.0627451, 0.0392157, 0.0392157, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 2
@@ -39,39 +64,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Vbox" type="VBoxContainer" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -134.0
-margin_right = 133.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Start" parent="Vbox" instance=ExtResource( 1 )]
-margin_right = 133.0
-margin_bottom = 36.251
-focus_neighbour_top = NodePath("../Quit")
-theme = null
-text = "Start"
-
-[node name="Options" parent="Vbox" instance=ExtResource( 1 )]
-margin_top = 40.0
-margin_right = 133.0
-margin_bottom = 76.251
-focus_next = NodePath("../Quit")
-focus_previous = NodePath("../Start")
-theme = null
-text = "Options"
-
-[node name="Quit" parent="Vbox" instance=ExtResource( 1 )]
-margin_top = 80.0
-margin_right = 133.0
-margin_bottom = 116.251
-focus_neighbour_bottom = NodePath("../Start")
-theme = null
-text = "Quit"
-
-[connection signal="pressed" from="Vbox/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="Vbox/Options" to="." method="_on_Options_pressed"]
-[connection signal="pressed" from="Vbox/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
