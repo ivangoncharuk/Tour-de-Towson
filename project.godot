@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "CheckPoint",
 "language": "GDScript",
-"path": "res://checkpoint/CheckPoint.gd"
+"path": "res://checkpoint/CP.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
