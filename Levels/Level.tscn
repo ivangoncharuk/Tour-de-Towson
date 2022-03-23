@@ -8,26 +8,23 @@
 [ext_resource path="res://ui/menus/PauseMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/Level.gd" type="Script" id=7]
 [ext_resource path="res://assets/ui_themes/kenneyUI-blue.tres" type="Theme" id=8]
-[ext_resource path="res://levels/LevelManager.gd" type="Script" id=9]
+[ext_resource path="res://levels/HUD.gd" type="Script" id=9]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 7 )
 
-[node name="LevelManager" type="Node" parent="."]
-pause_mode = 2
+[node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 9 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="LevelManager"]
-
-[node name="PauseMenu" parent="LevelManager/CanvasLayer" instance=ExtResource( 6 )]
+[node name="PauseMenu" parent="HUD" instance=ExtResource( 6 )]
 visible = false
 
-[node name="ControlPanel" parent="LevelManager/CanvasLayer" instance=ExtResource( 3 )]
+[node name="ControlPanel" parent="HUD" instance=ExtResource( 3 )]
 theme = ExtResource( 8 )
-player_path = NodePath("../../../Player")
+player_path = NodePath("../../Player")
 
-[node name="PlayerHUD" parent="LevelManager/CanvasLayer" instance=ExtResource( 5 )]
-player_path = NodePath("../../../Player")
+[node name="PlayerHUD" parent="HUD" instance=ExtResource( 5 )]
+player_path = NodePath("../../Player")
 
 [node name="Racetrack" type="TileMap" parent="."]
 scale = Vector2( 1.5, 1.5 )
@@ -57,8 +54,6 @@ scale = Vector2( 13.56, 1 )
 position = Vector2( 478, 1799 )
 scale = Vector2( 13.4442, 1 )
 
-[connection signal="pressed" from="LevelManager/CanvasLayer/PauseMenu/CenterContainer/VBoxContainer/Resume" to="LevelManager" method="_on_Resume_pressed"]
-[connection signal="pressed" from="LevelManager/CanvasLayer/PauseMenu/CenterContainer/VBoxContainer/Quit" to="LevelManager" method="_on_Quit_pressed"]
 [connection signal="body_entered" from="Checkpoints/Finish" to="Player" method="_on_Finish_body_entered"]
 
-[editable path="LevelManager/CanvasLayer/PauseMenu"]
+[editable path="HUD/PauseMenu"]
