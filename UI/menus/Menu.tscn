@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ui/menus/Button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/menus/Menu.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/dogica_pixel/dogicapixelbold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/ui_themes/kenneyUI-blue.tres" type="Theme" id=4]
+[ext_resource path="res://assets/music/race_theme.ogg" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=2]
 extra_spacing_top = 10
@@ -13,11 +14,8 @@ extra_spacing_space = 10
 font_data = ExtResource( 3 )
 
 [node name="Menu" type="Control"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_top = -180.0
-margin_right = 640.0
-margin_bottom = 180.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 theme = ExtResource( 4 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -26,34 +24,27 @@ __meta__ = {
 level_path = "res://levels/Level.tscn"
 options_menu_path = "res://ui/menus/OptionsMenu.tscn"
 
-[node name="Start" parent="." instance=ExtResource( 1 )]
-margin_top = 36.0
-margin_right = 284.0
-margin_bottom = 72.251
-focus_neighbour_top = NodePath("../Quit")
-theme = null
-text = "Start"
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0313726, 0.243137, 0.384314, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
-[node name="Options" parent="." instance=ExtResource( 1 )]
-margin_top = 76.0
-margin_right = 284.0
-margin_bottom = 112.251
-focus_next = NodePath("../Quit")
-focus_previous = NodePath("../Start")
-theme = null
-text = "Options"
+[node name="Title" type="CenterContainer" parent="."]
+margin_right = 640.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Quit" parent="." instance=ExtResource( 1 )]
-margin_top = 116.0
-margin_right = 284.0
-margin_bottom = 152.251
-focus_neighbour_bottom = NodePath("../Start")
-theme = null
-text = "Quit"
-
-[node name="Title" type="Label" parent="."]
-margin_right = 284.0
-margin_bottom = 32.0
+[node name="Label" type="Label" parent="Title"]
+margin_left = 178.0
+margin_top = 16.0
+margin_right = 462.0
+margin_bottom = 48.0
 custom_colors/font_color_shadow = Color( 0.0627451, 0.0392157, 0.0392157, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 2
@@ -64,6 +55,67 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
+[node name="Control" type="Control" parent="."]
+margin_left = 224.0
+margin_top = 128.0
+margin_right = 416.0
+margin_bottom = 272.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" parent="Control/Panel/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 20.0
+margin_right = 176.0
+margin_bottom = 56.251
+focus_neighbour_top = NodePath("../Quit")
+theme = null
+text = "Start"
+
+[node name="Options" parent="Control/Panel/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 60.0
+margin_right = 176.0
+margin_bottom = 96.251
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Start")
+theme = null
+text = "Options"
+
+[node name="Quit" parent="Control/Panel/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 100.0
+margin_right = 176.0
+margin_bottom = 136.251
+focus_neighbour_bottom = NodePath("../Start")
+theme = null
+text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="Control/Panel/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
