@@ -34,6 +34,10 @@ config/icon="res://assets/icon.png"
 
 Global="*res://autoload/Global.gd"
 
+[debug]
+
+gdscript/completion/autocomplete_setters_and_getters=true
+
 [display]
 
 window/size/width=640

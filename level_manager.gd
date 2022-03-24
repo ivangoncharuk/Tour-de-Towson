@@ -6,16 +6,16 @@ export(String) var stateful_group_name = "stateful"
 export(String) var signal_name = "switch_room"
 export(int) var curr_scene = 0
 
-var active_root:Node
+var active_root: Node
 var scene_states = []
 
-func _ready():
+func _ready() -> void:
 	active_root = world[curr_scene].instance()
 	add_child(active_root)
 	scene_states.resize(world.size())
 	_connect_signals()
 
-func _change_room(target_idx:int) -> int:
+func _change_room(target_idx: int) -> int:
 	if(target_idx < 0 or target_idx >= world.size()):
 		return ERR_INVALID_PARAMETER
 	call_deferred("_update_room", target_idx)
@@ -26,7 +26,7 @@ func _connect_signals() -> void:
 		if(x.has_user_signal(signal_name) == true):
 			x.connect(signal_name, self, "_change_room", [x.TARGET_SCENE])
 
-func _update_room(idx:int):
+func _update_room(idx: int):
 	_save_state()
 	curr_scene = idx
 	remove_child(active_root)
@@ -36,7 +36,7 @@ func _update_room(idx:int):
 	_connect_signals()
 	_load_state(idx)
 
-func _save_state(deep:bool = false):
+func _save_state(deep: bool = false) -> void:
 	scene_states[curr_scene] = []
 	
 	for x in active_root.get_children():
@@ -50,7 +50,7 @@ func _save_state(deep:bool = false):
 				var new_val = x.get(new_key)
 				scene_states[curr_scene].append({new_key:new_val})
 
-func _load_state(scene_idx :int, deep :bool = false) -> void:
+func _load_state(scene_idx: int, deep: bool = false) -> void:
 	var curr_dict = scene_states[scene_idx]
 	if(typeof(curr_dict) != TYPE_ARRAY):
 		return
