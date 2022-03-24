@@ -1,12 +1,18 @@
 extends Control
 
 
-export(String, FILE, "*.tscn") var level_path
-export(String, FILE, "*.tscn") var options_menu_path
+export(String, FILE, "*.tscn") var start_button_path
+export(String, FILE, "*.tscn") var options_button_path
+
+onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+onready var tween: Tween = $Tween
 
 func _ready():
+	audio.volume_db
 	pass
 #	$Vbox/Start.grab_focus()
+
+
 
 """
 Changes the scene with an animation
@@ -23,11 +29,11 @@ func transition_to(_next_scene: NodePath) -> void:
 
 
 func _on_Start_pressed() -> void:
-	transition_to(level_path)
+	transition_to(start_button_path)
 
 
 func _on_Options_pressed() -> void:
-	var options_menu = load(options_menu_path).instance()
+	var options_menu = load(options_button_path).instance()
 	get_tree().current_scene.add_child(options_menu)	
 
 
