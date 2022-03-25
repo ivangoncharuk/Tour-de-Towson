@@ -135,3 +135,6 @@ worn by the race leader, has the least cumulative time throughout all the stages
 #### the white jersey
   - similar to yellow jersey, uses cumulative time
   - only for young riders under age 25
+
+# Images
+![image](https://user-images.githubusercontent.com/85744041/160080974-ee9a6925-9cb2-4dbe-98b6-52ff7eaf99ed.png)
