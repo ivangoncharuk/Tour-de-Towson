@@ -10,7 +10,7 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Area2D",
-"class": "CheckPoint",
+"class": "Checkpoint",
 "language": "GDScript",
 "path": "res://checkpoint/Checkpoint.gd"
 }, {
@@ -20,7 +20,7 @@ _global_script_classes=[ {
 "path": "res://player/Player.gd"
 } ]
 _global_script_class_icons={
-"CheckPoint": "",
+"Checkpoint": "",
 "Player": ""
 }
 

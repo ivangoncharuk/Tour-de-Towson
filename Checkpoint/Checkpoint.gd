@@ -1,5 +1,5 @@
 extends Area2D
-class_name CheckPoint
+class_name Checkpoint
 
 export (bool) var _is_active
 export (bool) var _is_finish_line
