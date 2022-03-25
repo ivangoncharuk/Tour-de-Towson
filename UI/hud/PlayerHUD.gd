@@ -55,7 +55,7 @@ func _process(_delta: float) -> void:
 	# create a way to automate this: 
 	### Velocity
 	_v_label.text = "Velocity"
-	_v_progress.max_value = 550
+	_v_progress.max_value = 1000
 	_v_progress.value = player.velocity.length()
 	_v_progress_label.text = str("%1.0f / %d" % [player.velocity.length(), _v_progress.max_value])
 	
