@@ -11,12 +11,13 @@ func _ready() -> void:
 
 
 func _on_Checkpoint_body_entered(_body: Node) -> void:
-	if not _is_active:
-		return
-	if _is_finish_line:
-		Global.increment_lap_counter()
-	_is_active = false
-	get_node(_next_checkpoint).activate()
+	if(_body.name == "Player"):
+		if not _is_active:
+			return
+		if _is_finish_line:
+			Global.increment_lap_counter()
+		_is_active = false
+		get_node(_next_checkpoint).activate()
 
 
 func activate() -> void:

@@ -221,6 +221,156 @@ position = Vector2( 2594, 666 )
 [node name="AI50" parent="AI_Container" instance=ExtResource( 8 )]
 position = Vector2( 1671, 514 )
 
+[node name="AI51" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1341, 302 )
+
+[node name="AI52" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 409, 342 )
+
+[node name="AI53" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 657, 738 )
+
+[node name="AI54" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 653, 546 )
+
+[node name="AI55" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 669, 338 )
+
+[node name="AI56" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 853, 710 )
+
+[node name="AI57" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 849, 534 )
+
+[node name="AI58" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 873, 330 )
+
+[node name="AI59" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1129, 322 )
+
+[node name="AI60" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1141, 522 )
+
+[node name="AI61" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1137, 706 )
+
+[node name="AI62" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 268, 871 )
+
+[node name="AI63" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 472, 757 )
+
+[node name="AI64" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1328, 181 )
+
+[node name="AI65" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1119, 181 )
+
+[node name="AI66" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 881, 191 )
+
+[node name="AI67" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 677, 205 )
+
+[node name="AI68" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 401, 229 )
+
+[node name="AI69" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1376, 814 )
+
+[node name="AI70" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1124, 852 )
+
+[node name="AI71" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 839, 847 )
+
+[node name="AI72" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 653, 861 )
+
+[node name="AI73" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 487, 876 )
+
+[node name="AI74" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 239, 243 )
+
+[node name="AI75" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 225, 362 )
+
+[node name="AI76" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 234, 476 )
+
+[node name="AI77" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 420, 462 )
+
+[node name="AI78" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 534, 224 )
+
+[node name="AI79" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 520, 357 )
+
+[node name="AI80" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1000, 324 )
+
+[node name="AI81" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 991, 181 )
+
+[node name="AI82" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1205, 248 )
+
+[node name="AI83" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 605, 462 )
+
+[node name="AI84" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 781, 428 )
+
+[node name="AI85" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 972, 452 )
+
+[node name="AI86" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1143, 424 )
+
+[node name="AI87" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1267, 405 )
+
+[node name="AI88" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 986, 623 )
+
+[node name="AI89" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1248, 609 )
+
+[node name="AI90" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 753, 628 )
+
+[node name="AI91" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 558, 661 )
+
+[node name="AI92" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 401, 666 )
+
+[node name="AI93" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 244, 590 )
+
+[node name="AI94" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 249, 709 )
+
+[node name="AI95" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 572, 809 )
+
+[node name="AI96" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 981, 776 )
+
+[node name="AI97" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 344, 785 )
+
+[node name="AI98" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1248, 771 )
+
+[node name="AI99" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 1357, 690 )
+
+[node name="AI100" parent="AI_Container" instance=ExtResource( 8 )]
+position = Vector2( 434, 538 )
+
 [connection signal="body_entered" from="Checkpoints/Finish" to="Player" method="_on_Finish_body_entered"]
 
 [editable path="HUD/PauseMenu"]
