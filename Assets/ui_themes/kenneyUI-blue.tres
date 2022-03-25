@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=36 format=2]
 
-[ext_resource path="res://assets/ui_themes/kenvector_future.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/kenvector_future.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/ui_themes/UIpack_vector.svg" type="Texture" id=2]
-[ext_resource path="res://assets/fonts/font_resource/dogica_pixel_bold.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/fonts/font_resource/dogica_pixel_bold_16.tres" type="DynamicFont" id=3]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
