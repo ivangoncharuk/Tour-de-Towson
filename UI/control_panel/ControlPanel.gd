@@ -14,18 +14,23 @@ var car_settings := [
 	'drag',
 	'slip_speed',
 	'steering_angle',
+	'max_speed_reverse',
 	]
 
-
+#export (int) var max_speed_reverse = 50
+"""
+[min, max, step]
+"""
 var ranges := {
-	'traction_fast': 	[0, 1.0, 0.01],
-	'traction_slow': 	[0, 1.0, 0.01],
-	'engine_power': 	[500, 2000, 10],
-	'braking': 			[-1000, -100, 10],
-	'friction': 		[-1.0, -0.01, 0.01],
-	'drag': 			[-0.1, 0, 0.001],
-	'slip_speed': 		[100, 1500, 10],
-	'steering_angle': 	[0, 45, 1], 	}
+	'traction_fast':		[0, 1.0, 0.01],
+	'traction_slow':		[0, 1.0, 0.01],
+	'engine_power':			[500, 2000, 10],
+	'braking':				[-1000, -100, 10],
+	'friction':				[-1.0, -0.01, 0.01],
+	'drag':					[-0.1, 0, 0.001],
+	'slip_speed':			[100, 1500, 10],
+	'steering_angle':		[0, 45, 1],
+	'max_speed_reverse':	[0, 100, 1], 	}
 
 
 func _ready() -> void:

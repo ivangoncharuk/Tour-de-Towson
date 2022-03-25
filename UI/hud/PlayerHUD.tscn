@@ -26,49 +26,16 @@ __meta__ = {
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 490.0
-margin_bottom = 90.0
-
-[node name="LapContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_right = 480.0
-margin_bottom = 14.0
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer/LapContainer"]
-margin_right = 468.0
-margin_bottom = 14.0
-size_flags_horizontal = 3
-text = "Current Lap"
-
-[node name="CurrentLap" type="Label" parent="Panel/VBoxContainer/LapContainer"]
-margin_left = 472.0
-margin_right = 480.0
-margin_bottom = 14.0
-text = "2"
-
-[node name="TimeContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 18.0
-margin_right = 480.0
-margin_bottom = 32.0
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer/TimeContainer"]
-margin_right = 412.0
-margin_bottom = 14.0
-size_flags_horizontal = 3
-text = "Time"
-
-[node name="CurrentTime" type="Label" parent="Panel/VBoxContainer/TimeContainer"]
-margin_left = 416.0
-margin_right = 480.0
-margin_bottom = 14.0
-text = "0 : 00 : 00"
+margin_bottom = 108.0
 
 [node name="Velocity" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 36.0
 margin_right = 480.0
-margin_bottom = 56.0
+margin_bottom = 20.0
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/Velocity"]
 margin_top = 3.0
 margin_right = 176.0
+margin_bottom = 17.0
 size_flags_horizontal = 3
 text = "Speed"
 
@@ -92,9 +59,9 @@ rect_scale = Vector2( 0.8, 0.8 )
 text = "100"
 
 [node name="Acceleration" type="HBoxContainer" parent="Panel/VBoxContainer"]
-margin_top = 60.0
+margin_top = 24.0
 margin_right = 480.0
-margin_bottom = 80.0
+margin_bottom = 44.0
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/Acceleration"]
 margin_top = 3.0
@@ -121,3 +88,53 @@ margin_right = 49.0
 margin_bottom = 20.0
 rect_scale = Vector2( 0.8, 0.8 )
 text = "100"
+
+[node name="LapContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_top = 48.0
+margin_right = 480.0
+margin_bottom = 62.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/LapContainer"]
+margin_right = 468.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Current Lap"
+
+[node name="CurrentLap" type="Label" parent="Panel/VBoxContainer/LapContainer"]
+margin_left = 472.0
+margin_right = 480.0
+margin_bottom = 14.0
+text = "2"
+
+[node name="TimeContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_top = 66.0
+margin_right = 480.0
+margin_bottom = 80.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/TimeContainer"]
+margin_right = 412.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Time"
+
+[node name="CurrentTime" type="Label" parent="Panel/VBoxContainer/TimeContainer"]
+margin_left = 416.0
+margin_right = 480.0
+margin_bottom = 14.0
+text = "0 : 00 : 00"
+
+[node name="WheelBaseContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_top = 84.0
+margin_right = 480.0
+margin_bottom = 98.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/WheelBaseContainer"]
+margin_right = 476.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Wheel Base"
+
+[node name="WheelBase" type="Label" parent="Panel/VBoxContainer/WheelBaseContainer"]
+margin_left = 480.0
+margin_right = 480.0
+margin_bottom = 14.0
