@@ -23,3 +23,20 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 562.0
 margin_bottom = 54.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_right = 552.0
+margin_bottom = 24.0
+
+[node name="CheckBox" type="CheckBox" parent="Panel/VBoxContainer/HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+margin_left = 28.0
+margin_top = 5.0
+margin_right = 82.0
+margin_bottom = 19.0
+text = "AI Mode"
+
+[connection signal="toggled" from="Panel/VBoxContainer/HBoxContainer/CheckBox" to="." method="_on_CheckBox_toggled"]

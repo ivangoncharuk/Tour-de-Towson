@@ -66,7 +66,7 @@ func _process(_delta: float) -> void:
 	_a_progress_label.text = str("%1.0f / %d" % [player.acceleration.length(), _a_progress.max_value])
 
 """
-Formats the float value of time into a readable string in this format:
+Formats the float value of time into a readable string in the format:
 	[mm:hh:sss]
 """
 func _format_time(time: float) -> String:

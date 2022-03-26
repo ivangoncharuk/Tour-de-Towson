@@ -1,9 +1,10 @@
 extends Control
-
-export (NodePath) var player_path # Drag in the thing you want to control
+export (NodePath) var player_path
 var SettingSlider = preload("res://ui//SettingSlider.tscn")
-var player = null
+var player: Player = null
 
+
+onready var checkbox = $Panel/VBoxContainer/HBoxContainer/CheckBox
 
 var car_settings := [
 	'traction_fast',
@@ -60,6 +61,7 @@ func _on_Value_changed(value, node) -> void:
 	node.get_node("Value").text = str(value)
 
 
-func _process(_delta) -> void:
-	if not player:
-		return
+
+func _on_CheckBox_toggled(button_pressed: bool):
+	player.is_human = !button_pressed
+	print(player.is_human)

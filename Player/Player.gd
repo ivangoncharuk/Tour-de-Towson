@@ -1,49 +1,98 @@
 extends KinematicBody2D
-class_name Player
-
+class_name Player, "res://assets/class_icons/bike_icon.png"
 
 ### Movement Exports ###
+# new
+export (bool) var is_live_race = false
+export (bool) var is_human = false setget set_is_human
+export (int) var num_lap_to_finish = 3
+
 export (float) var traction_fast = 0.1
 export (float) var traction_slow = 0.7
-# forward acceleration force
 export (int) var engine_power = 800
 export (int) var braking = -450
 export (float) var friction = -0.5
 export (float) var drag = -0.001
 export (int) var slip_speed = 400
-# in degrees
-export (int) var steering_angle = 5
+export (int) var steering_angle = 5 # in degrees
 export (int) var max_speed_reverse = 50
-
 
 ### Movement ###
 var acceleration := Vector2.ZERO
 var velocity := Vector2.ZERO
 var steer_direction: float
+export(float) var steer_force = 0.1
 
 ### Time ###
 var _time: float = 0 setget set_current_time, get_current_time
 var is_timer_on: bool = false
 
-"""
-The distance between the middle of the frontwheel and backwheel
-marked by Position2D nodes $FrontWheel and $BackWheel
-"""
+### AI ###
+export(int) var look_ahead = 200
+export(int) var num_rays = 8
+var last_loc: Vector2
+var rng = RandomNumberGenerator.new()
+var ray_directions := []
+var interest := []
+var danger := []
+var chosen_dir := Vector2.ZERO
+
+### onready ###
 onready var wheel_base = abs($FrontWheel.position.x - $BackWheel.position.x)
+
+
+func _ready() -> void:
+	randomize()
+	if not is_human:
+		_bot_set_up()
+		modulate = Color(randf(), randf(), randf(), 1.0)
+		
+
+
+func set_is_human(value: bool):
+	is_human = value
+	_bot_set_up()
+
+
+func _bot_set_up():
+	interest.resize(num_rays)
+	danger.resize(num_rays)
+	ray_directions.resize(num_rays)
+	for index in num_rays:
+		var angle = index * 2 * PI / num_rays
+		ray_directions[index] = Vector2.RIGHT.rotated(angle)
+
 
 func _physics_process(delta: float) -> void:
 	# Movement
 	acceleration = Vector2.ZERO
-	_get_input()
+	
+	if not is_human:
+		_is_stuck()
+		_set_interest()
+		_set_danger()
+		_choose_direction()
+		var desired_velocity = chosen_dir.rotated(rotation) * engine_power
+		velocity = velocity.linear_interpolate(desired_velocity, steer_force)
+		rotation = velocity.angle()
+	else:
+		_get_input()
+		_calculate_steering(delta)
+		
+	_process_timer(delta)
 	_apply_friction()
-	_calculate_steering(delta)
+	
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
-	_process_timer(delta) 
-	if Global.get_lap_counter() == 3:
+	
+	if Global.get_lap_counter() == num_lap_to_finish:
 		is_timer_on = false
-
-
+		is_live_race = false
+		print("time: %d" % _time)
+		Global.set_lap_counter(0)
+		print("global lap counter to %s" % Global.get_lap_counter())
+	
+	
 func _get_input() -> void:
 	var turn: int = 0
 	if Input.is_action_pressed("steer_right"):
@@ -58,6 +107,51 @@ func _get_input() -> void:
 		acceleration = transform.x * engine_power / 10
 	elif Input.is_action_pressed("brake"):
 		acceleration = transform.x * braking
+
+# Set interest in each slot based on world direction
+func _set_interest():
+	if owner and owner.has_method("get_path_direction"):
+		var path_direction = owner.get_path_direction(position)
+		for i in num_rays:
+			var d = ray_directions[i].rotated(rotation).dot(path_direction)
+			# If no world path, use default interest
+			interest[i] = max(0, d)
+	else:
+		_set_default_interest()
+
+# Default to moving forward
+func _set_default_interest():
+	for i in num_rays:
+		var d = ray_directions[i].rotated(rotation).dot(transform.x)
+		interest[i] = max(0, d)
+
+# Cast rays to find danger directions
+func _set_danger():
+	var space_state = get_world_2d().direct_space_state
+	for i in num_rays:
+		var result = space_state.intersect_ray(position,
+			position + ray_directions[i].rotated(rotation) * look_ahead, [self])
+		danger[i] = 1.0 if result else 0.0
+
+
+func _choose_direction():
+	# Eliminate interest in slots with danger
+	for i in num_rays:
+		if danger[i] > 0.0:
+			interest[i] = 0.0
+	# Choose direction based on remaining interest
+	chosen_dir = Vector2.ZERO
+	for i in num_rays:
+		chosen_dir += ray_directions[i] * interest[i]
+	chosen_dir = chosen_dir.normalized()
+
+
+func _is_stuck(from: int = -50, to: int = 50) -> void:
+	if get_position() != last_loc:
+		last_loc = get_position()
+	else:
+		position.x += rng.randi_range(from, to)
+		position.y += rng.randi_range(from, to)
 
 
 func _apply_friction() -> void:
@@ -103,5 +197,11 @@ func get_current_time() -> float:
 
 
 func _on_Finish_body_entered(_body: Node):
-	# _body.to_string() -> "Player:[KinematicBody2D:2109]"
-	is_timer_on = true
+	if is_live_race:
+		return
+	
+	is_live_race = true # live_race state set to true
+	is_timer_on = true  # turns timer on
+	_time = 0 			# reset the timer
+	print("timer started!")
+

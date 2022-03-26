@@ -19,7 +19,6 @@ visible = false
 
 [node name="ControlPanel" parent="." instance=ExtResource( 3 )]
 visible = false
-player_path = NodePath("../../Player")
 
 [node name="PlayerHUD" parent="." instance=ExtResource( 2 )]
 player_path = NodePath("../../Player")
