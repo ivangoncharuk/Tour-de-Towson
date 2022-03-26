@@ -53,6 +53,8 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.linear_interpolate(desired_velocity, steer_force)
 	rotation = velocity.angle()
 	move_and_collide(velocity * delta)
+
+
 func set_interest():
 	# Set interest in each slot based on world direction
 	if owner and owner.has_method("get_path_direction"):
@@ -68,6 +70,8 @@ func set_default_interest():
 	for i in num_rays:
 		var d = ray_directions[i].rotated(rotation).dot(transform.x)
 		interest[i] = max(0, d)
+
+
 func set_danger():
 	# Cast rays to find danger directions
 	var space_state = get_world_2d().direct_space_state
@@ -75,6 +79,8 @@ func set_danger():
 		var result = space_state.intersect_ray(position,
 			position + ray_directions[i].rotated(rotation) * look_ahead, [self])
 		danger[i] = 1.0 if result else 0.0
+
+
 func choose_direction():
 	# Eliminate interest in slots with danger
 	for i in num_rays:
@@ -85,13 +91,14 @@ func choose_direction():
 	for i in num_rays:
 		chosen_dir += ray_directions[i] * interest[i]
 	chosen_dir = chosen_dir.normalized()
-func is_stuck()->void:
+func is_stuck() -> void:
 	#When you win screen is done implement the is_stuck() properly
-	if(get_position() != last_loc):
+	if get_position() != last_loc:
 		last_loc = get_position()
 	else:
 		position.x += rng.randi_range(-50,50)
 		position.y += rng.randi_range(-50,50)
+	
 	
 func _apply_friction() -> void:
 	# if velocity is less than 5, avoid velocity decreasing infinititly small by
@@ -104,4 +111,4 @@ func _apply_friction() -> void:
 	acceleration += drag_force + friction_force
 func set_color() -> void:
 	randomize()
-	modulate = (Color(randf(), randf(), randf(), 1.0))
+	modulate = Color(randf(), randf(), randf(), 1.0)
