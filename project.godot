@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "AI",
 "language": "GDScript",
-"path": "res://AI/AI.gd"
+"path": "res://ai/AI.gd"
 }, {
 "base": "Area2D",
 "class": "Checkpoint",
@@ -31,7 +31,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AI": "",
-"CheckPoint": "",
+"Checkpoint": "",
 "Player": "",
 "path": ""
 }
