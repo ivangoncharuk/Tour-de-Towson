@@ -25,13 +25,11 @@ var steer_direction: float
 var _time: float = 0 setget set_current_time, get_current_time
 var is_timer_on: bool = false
 
-### Wheel Base ###
-var wheel_base
-
-
-func _ready() -> void:
-	_calculate_wheel_base()
-
+"""
+The distance between the middle of the frontwheel and backwheel
+marked by Position2D nodes $FrontWheel and $BackWheel
+"""
+onready var wheel_base = abs($FrontWheel.position.x - $BackWheel.position.x)
 
 func _physics_process(delta: float) -> void:
 	# Movement
@@ -44,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	_process_timer(delta) 
 	if Global.get_lap_counter() == 3:
 		is_timer_on = false
-		
+
 
 func _get_input() -> void:
 	var turn: int = 0
@@ -90,14 +88,6 @@ func _calculate_steering(delta: float) -> void:
 	rotation = new_heading.angle()
 
 
-func _calculate_wheel_base() -> void:
-	var front_wheel_pos: Position2D = $FrontWheel
-	var back_wheel_pos: Position2D = $BackWheel
-	wheel_base = abs(front_wheel_pos.position.x - back_wheel_pos.position.x)
-
-"""
-player clock timer
-"""
 func _process_timer(delta: float) -> void:
 	if not is_timer_on:
 		return

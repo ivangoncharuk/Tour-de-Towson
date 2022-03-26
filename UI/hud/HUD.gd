@@ -1,14 +1,12 @@
 extends CanvasLayer
 var is_paused: bool = false setget set_is_paused
 
-
 onready var pause_menu: Control = $PauseMenu
 onready var player_hud: Control = $PlayerHUD
 onready var control_panel: Control = $ControlPanel
 
 onready var is_player_hud: bool = player_hud.visible
 onready var is_control_panel: bool = control_panel.visible
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -25,6 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			control_panel.visible = !control_panel.visible
 			is_control_panel = control_panel.visible
 
+
 func set_is_paused(value: bool) -> void:
 	# pauses the whole tree
 	get_tree().paused = value
@@ -40,8 +39,17 @@ func set_is_paused(value: bool) -> void:
 		control_panel.hide()
 		player_hud.hide()
 
-func _on_Resume_pressed():
+
+func _on_PauseMenu_resume_pressed():
 	self.is_paused = false
 
-func _on_Quit_pressed():
+
+func _on_PauseMenu_quit_pressed():
+	var quit = $PauseMenu/CenterContainer/VBoxContainer/Quit
+	self.is_paused = false
+	if get_tree().change_scene(quit.scene_to_load) != OK:
+		print("err when pressing quit")
+
+
+func _on_PauseMenu_exit_game_pressed():
 	get_tree().quit()
