@@ -23,17 +23,11 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://player/Player.gd"
-}, {
-"base": "Path2D",
-"class": "path",
-"language": "GDScript",
-"path": "res://levels/Path2D.gd"
 } ]
 _global_script_class_icons={
 "AI": "",
 "Checkpoint": "",
-"Player": "",
-"path": ""
+"Player": ""
 }
 
 [application]
