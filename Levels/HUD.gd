@@ -5,11 +5,14 @@ var is_paused: bool = false setget set_is_paused
 onready var pause_menu: Control = $PauseMenu
 onready var player_hud: Control = $PlayerHUD
 onready var control_panel: Control = $ControlPanel
-
+onready var begin_timer: Control = $BeginTimer
 onready var is_player_hud: bool = player_hud.visible
 onready var is_control_panel: bool = control_panel.visible
 
-
+func _ready():
+	get_tree().paused = true
+	begin_timer.visible = true
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		# self. refers to the setter -> setget set_is_paused
