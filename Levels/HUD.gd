@@ -11,7 +11,6 @@ onready var is_control_panel: bool = control_panel.visible
 
 func _ready():
 	get_tree().paused = true
-	begin_timer.visible = true
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):

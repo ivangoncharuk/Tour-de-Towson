@@ -5,7 +5,6 @@ export (Array, PackedScene) var world
 export(String) var stateful_group_name = "stateful"
 export(String) var signal_name = "switch_room"
 export(int) var curr_scene = 0
-export (bool) var dev_mode = true
 
 var active_root: Node
 var scene_states = []

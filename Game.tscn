@@ -7,3 +7,4 @@
 [node name="Game" type="Node"]
 script = ExtResource( 1 )
 world = [ ExtResource( 2 ), ExtResource( 3 ), null, null, null, null ]
+dev_mode = true
