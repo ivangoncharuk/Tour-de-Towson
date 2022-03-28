@@ -5,19 +5,18 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Bot" type="KinematicBody2D"]
+position = Vector2( 2610.36, 345.592 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 show_behind_parent = true
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 7, 45, 112, 48 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( -2, 0 )
-current = true
-zoom = Vector2( 2, 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
@@ -33,10 +32,3 @@ position = Vector2( -35, -1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-
-[node name="Label" type="Label" parent="."]
-margin_left = 144.0
-margin_top = -104.0
-margin_right = 231.0
-margin_bottom = -90.0
-text = "This is a label"

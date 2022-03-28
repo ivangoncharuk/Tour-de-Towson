@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://ui/buttons/MenuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/menus/title/TitleScreen.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/dogica_pixel/dogicapixelbold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://ui/fade_in/FadeIn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/music/race_theme.ogg" type="AudioStream" id=5]
+
+[sub_resource type="Theme" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+extra_spacing_top = 10
+extra_spacing_bottom = 10
+extra_spacing_char = 4
+extra_spacing_space = 10
+font_data = ExtResource( 3 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 3 )
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0313726, 0.243137, 0.384314, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="CenterContainer" parent="."]
+margin_right = 640.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Title"]
+margin_left = 178.0
+margin_top = 16.0
+margin_right = 462.0
+margin_bottom = 48.0
+custom_colors/font_color_shadow = Color( 0.0627451, 0.0392157, 0.0392157, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 2 )
+text = "Tour De Towson"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonContainer" type="Control" parent="."]
+margin_left = 224.0
+margin_top = 128.0
+margin_right = 416.0
+margin_bottom = 229.0
+
+[node name="Panel" type="PanelContainer" parent="ButtonContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="ButtonContainer/Panel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 185.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" parent="ButtonContainer/Panel/Buttons" instance=ExtResource( 1 )]
+margin_top = 19.0
+margin_right = 178.0
+margin_bottom = 39.0
+focus_neighbour_top = NodePath("../Quit")
+text = "Play"
+scene_to_load = "res://levels/Demo.tscn"
+
+[node name="Options" parent="ButtonContainer/Panel/Buttons" instance=ExtResource( 1 )]
+margin_top = 43.0
+margin_right = 178.0
+margin_bottom = 63.0
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Play")
+text = "Options"
+scene_to_load = "res://ui/menus/OptionsMenu.tscn"
+
+[node name="Quit" parent="ButtonContainer/Panel/Buttons" instance=ExtResource( 1 )]
+margin_top = 67.0
+margin_right = 178.0
+margin_bottom = 87.0
+focus_neighbour_bottom = NodePath("../Play")
+text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -40.0
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 19.0
+margin_top = -67.0
+margin_right = 225.0
+text = "author ivangoncharuk
+using Godot 3.4.4.stable.mono
+"
+valign = 1
+
+[node name="FadeIn" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

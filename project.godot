@@ -9,10 +9,15 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Area2D",
-"class": "CheckPoint",
+"base": "KinematicBody2D",
+"class": "AI",
 "language": "GDScript",
-"path": "res://checkpoint/CP.gd"
+"path": "res://ai/AI.gd"
+}, {
+"base": "Area2D",
+"class": "Checkpoint",
+"language": "GDScript",
+"path": "res://checkpoint/Checkpoint.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -20,23 +25,20 @@ _global_script_classes=[ {
 "path": "res://player/Player.gd"
 } ]
 _global_script_class_icons={
-"CheckPoint": "",
-"Player": ""
+"AI": "",
+"Checkpoint": "",
+"Player": "res://assets/class_icons/bike_icon.png"
 }
 
 [application]
 
 config/name="Tour-de-Towson"
-run/main_scene="res://ui/menus/Menu.tscn"
+run/main_scene="res://levels/Demo.tscn"
 config/icon="res://assets/icon.png"
 
 [autoload]
 
 Global="*res://autoload/Global.gd"
-
-[debug]
-
-gdscript/completion/autocomplete_setters_and_getters=true
 
 [display]
 
@@ -76,22 +78,21 @@ brake={
 pause={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
-}
-toggle_hud={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777245,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
-}
-toggle_control_panel={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 toggle_player_hud={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777218,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+toggle_control_panel={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777246,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+toggle_debug_draw={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":true,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

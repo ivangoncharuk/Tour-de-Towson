@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/menus/pause/PauseMenu.gd" type="Script" id=1]
+[ext_resource path="res://ui/buttons/MenuButton.tscn" type="PackedScene" id=2]
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0313726, 0.0235294, 0.0235294, 0.760784 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 276.0
+margin_top = 140.0
+margin_right = 363.0
+margin_bottom = 220.0
+custom_constants/separation = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 87.0
+margin_bottom = 14.0
+text = "paused"
+align = 1
+uppercase = true
+
+[node name="Resume" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 16.0
+margin_right = 87.0
+margin_bottom = 36.0
+text = "Resume"
+
+[node name="Quit" parent="CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 38.0
+margin_right = 87.0
+margin_bottom = 58.0
+text = "Quit to title"
+scene_to_load = "res://ui/menus/TitleScreen.tscn"
+
+[node name="ExitGame" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 87.0
+margin_bottom = 80.0
+text = "Exit Game"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitGame" to="." method="_on_ExitGame_pressed"]
