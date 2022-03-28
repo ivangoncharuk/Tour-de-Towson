@@ -2,11 +2,10 @@ extends KinematicBody2D
 class_name Player, "res://assets/class_icons/bike_icon.png"
 
 ### Movement Exports ###
-# new
 export (bool) var is_live_race = false
 export (bool) var is_human = false setget set_is_human
-export (int) var num_lap_to_finish = 3
 
+export (int) var num_lap_to_finish = 3
 export (float) var traction_fast = 0.1
 export (float) var traction_slow = 0.7
 export (int) var engine_power = 800
@@ -18,6 +17,7 @@ export (int) var steering_angle = 5 # in degrees
 export (int) var max_speed_reverse = 50
 
 ### Movement ###
+var is_movement_locked: bool
 var acceleration := Vector2.ZERO
 var velocity := Vector2.ZERO
 var steer_direction: float
@@ -42,16 +42,54 @@ onready var wheel_base = abs($FrontWheel.position.x - $BackWheel.position.x)
 
 
 func _ready() -> void:
-	randomize()
+	_bot_set_up()
 	if not is_human:
-		_bot_set_up()
 		modulate = Color(randf(), randf(), randf(), 1.0)
-		
 
 
 func set_is_human(value: bool):
 	is_human = value
-	_bot_set_up()
+
+
+func _physics_process(delta: float) -> void:
+	# Movement
+	if is_movement_locked: return
+	acceleration = Vector2.ZERO
+	
+	if not is_human:
+		_is_stuck()
+		_set_interest()
+		_set_danger()
+		_choose_direction()
+		var desired_velocity: Vector2 = chosen_dir.rotated(rotation) * engine_power
+		velocity = velocity.linear_interpolate(desired_velocity, steer_force)
+		rotation = velocity.angle()
+	else:
+		steer_direction = _get_input() * deg2rad(steering_angle)
+		rotation = _calculate_steering(delta)
+		
+	_process_timer(delta)
+	_apply_friction()
+	
+	velocity += acceleration * delta
+	velocity = move_and_slide(velocity)
+
+	
+func _get_input() -> int:
+	var turn: int = 0
+	if Input.is_action_pressed("steer_right"):
+		turn += 1
+	if Input.is_action_pressed("steer_left"):
+		turn -= 1	
+	
+	
+	if Input.is_action_pressed("accelerate"):
+		acceleration = transform.x * engine_power
+	elif Input.is_action_pressed("accelerate"):
+		acceleration = transform.x * engine_power / 10
+	elif Input.is_action_pressed("brake"):
+		acceleration = transform.x * braking
+	return turn
 
 
 func _bot_set_up():
@@ -61,52 +99,6 @@ func _bot_set_up():
 	for index in num_rays:
 		var angle = index * 2 * PI / num_rays
 		ray_directions[index] = Vector2.RIGHT.rotated(angle)
-
-
-func _physics_process(delta: float) -> void:
-	# Movement
-	acceleration = Vector2.ZERO
-	
-	if not is_human:
-		_is_stuck()
-		_set_interest()
-		_set_danger()
-		_choose_direction()
-		var desired_velocity = chosen_dir.rotated(rotation) * engine_power
-		velocity = velocity.linear_interpolate(desired_velocity, steer_force)
-		rotation = velocity.angle()
-	else:
-		_get_input()
-		_calculate_steering(delta)
-		
-	_process_timer(delta)
-	_apply_friction()
-	
-	velocity += acceleration * delta
-	velocity = move_and_slide(velocity)
-	
-	if Global.get_lap_counter() == num_lap_to_finish:
-		is_timer_on = false
-		is_live_race = false
-		print("time: %d" % _time)
-		Global.set_lap_counter(0)
-		print("global lap counter to %s" % Global.get_lap_counter())
-	
-	
-func _get_input() -> void:
-	var turn: int = 0
-	if Input.is_action_pressed("steer_right"):
-		turn += 1
-	if Input.is_action_pressed("steer_left"):
-		turn -= 1	
-	steer_direction = turn * deg2rad(steering_angle)
-	
-	if Input.is_action_pressed("accelerate"):
-		acceleration = transform.x * engine_power
-	elif Input.is_action_pressed("accelerate"):
-		acceleration = transform.x * engine_power / 10
-	elif Input.is_action_pressed("brake"):
-		acceleration = transform.x * braking
 
 # Set interest in each slot based on world direction
 func _set_interest():
@@ -165,7 +157,7 @@ func _apply_friction() -> void:
 	acceleration += drag_force + friction_force
 
 
-func _calculate_steering(delta: float) -> void:
+func _calculate_steering(delta: float) -> float:
 	var rear_wheel: Vector2 = position - transform.x * wheel_base/2.0
 	var front_wheel: Vector2 = position + transform.x * wheel_base/2.0
 	rear_wheel += velocity * delta
@@ -179,13 +171,21 @@ func _calculate_steering(delta: float) -> void:
 		velocity = velocity.linear_interpolate(new_heading * velocity.length(), traction)
 	elif dot < 0:
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
-	rotation = new_heading.angle()
+	return new_heading.angle()
 
 
 func _process_timer(delta: float) -> void:
 	if not is_timer_on:
 		return
+		
 	_time += delta
+	
+	if Global.get_lap_counter() == num_lap_to_finish:
+		is_timer_on = false
+		is_live_race = false
+		print("time: %d" % _time)
+		Global.set_lap_counter(0)
+		print("global lap counter to %s" % Global.get_lap_counter())
 
 
 func set_current_time(time: float) -> void:
@@ -199,9 +199,7 @@ func get_current_time() -> float:
 func _on_Finish_body_entered(_body: Node):
 	if is_live_race:
 		return
-	
 	is_live_race = true # live_race state set to true
 	is_timer_on = true  # turns timer on
 	_time = 0 			# reset the timer
 	print("timer started!")
-

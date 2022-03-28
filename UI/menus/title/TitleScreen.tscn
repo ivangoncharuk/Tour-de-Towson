@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://ui/MenuButton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://ui/menus/TitleScreen.gd" type="Script" id=2]
+[ext_resource path="res://ui/buttons/MenuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/menus/title/TitleScreen.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/dogica_pixel/dogicapixelbold.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://ui/FadeIn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/fade_in/FadeIn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/music/race_theme.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Theme" id=3]

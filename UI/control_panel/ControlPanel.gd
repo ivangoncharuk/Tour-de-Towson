@@ -1,6 +1,7 @@
 extends Control
 export (NodePath) var player_path
-var SettingSlider = preload("res://ui//SettingSlider.tscn")
+var SettingSlider: PackedScene = preload("res://ui/SettingSlider.tscn")
+
 var player: Player = null
 
 
@@ -36,6 +37,7 @@ var ranges := {
 
 func _ready() -> void:
 	# if there is no player_path
+
 	if not player_path:
 		return
 
