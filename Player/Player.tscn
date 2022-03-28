@@ -33,3 +33,10 @@ position = Vector2( -35, -1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 144.0
+margin_top = -104.0
+margin_right = 231.0
+margin_bottom = -90.0
+text = "This is a label"

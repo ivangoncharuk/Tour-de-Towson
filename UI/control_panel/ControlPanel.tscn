@@ -28,15 +28,16 @@ margin_bottom = 54.0
 margin_right = 552.0
 margin_bottom = 24.0
 
-[node name="CheckBox" type="CheckBox" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_right = 24.0
-margin_bottom = 24.0
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_left = 28.0
-margin_top = 5.0
+[node name="AIToggle" type="CheckBox" parent="Panel/VBoxContainer/HBoxContainer"]
 margin_right = 82.0
-margin_bottom = 19.0
+margin_bottom = 24.0
 text = "AI Mode"
 
-[connection signal="toggled" from="Panel/VBoxContainer/HBoxContainer/CheckBox" to="." method="_on_CheckBox_toggled"]
+[node name="DebugDraw" type="CheckBox" parent="Panel/VBoxContainer/HBoxContainer"]
+margin_left = 86.0
+margin_right = 191.0
+margin_bottom = 24.0
+text = "Debug Draw"
+
+[connection signal="toggled" from="Panel/VBoxContainer/HBoxContainer/AIToggle" to="." method="_on_AIToggle_toggled"]
+[connection signal="toggled" from="Panel/VBoxContainer/HBoxContainer/DebugDraw" to="." method="_on_DebugDraw_toggled"]

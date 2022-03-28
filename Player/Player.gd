@@ -2,6 +2,7 @@ extends KinematicBody2D
 class_name Player, "res://assets/class_icons/bike_icon.png"
 
 ### Movement Exports ###
+var debug_draw := false
 export (bool) var is_live_race = false
 export (bool) var is_human = false setget set_is_human
 
@@ -16,18 +17,19 @@ export (int) var slip_speed = 400
 export (int) var steering_angle = 5 # in degrees
 export (int) var max_speed_reverse = 50
 
-### Movement ###
+onready var wheel_base = abs($FrontWheel.position.x - $BackWheel.position.x)
+
 var is_movement_locked: bool
 var acceleration := Vector2.ZERO
 var velocity := Vector2.ZERO
 var steer_direction: float
-export(float) var steer_force = 0.1
 
-### Time ###
-var _time: float = 0 setget set_current_time, get_current_time
+
 var is_timer_on: bool = false
+var _time: float = 0 setget set_current_time, get_current_time
 
 ### AI ###
+export(float) var steer_force = 0.05
 export(int) var look_ahead = 200
 export(int) var num_rays = 8
 var last_loc: Vector2
@@ -37,21 +39,22 @@ var interest := []
 var danger := []
 var chosen_dir := Vector2.ZERO
 
-### onready ###
-onready var wheel_base = abs($FrontWheel.position.x - $BackWheel.position.x)
-
 
 func _ready() -> void:
-	_bot_set_up()
+	# setup code for the AI
+	interest.resize(num_rays)
+	danger.resize(num_rays)
+	ray_directions.resize(num_rays)
+	for index in num_rays:
+		var angle = index * 2 * PI / num_rays
+		ray_directions[index] = Vector2.RIGHT.rotated(angle)
+	
 	if not is_human:
 		modulate = Color(randf(), randf(), randf(), 1.0)
 
 
-func set_is_human(value: bool):
-	is_human = value
-
-
 func _physics_process(delta: float) -> void:
+	_handle_debug()
 	# Movement
 	if is_movement_locked: return
 	acceleration = Vector2.ZERO
@@ -60,13 +63,13 @@ func _physics_process(delta: float) -> void:
 		_is_stuck()
 		_set_interest()
 		_set_danger()
-		_choose_direction()
+		chosen_dir = _choose_direction()
 		var desired_velocity: Vector2 = chosen_dir.rotated(rotation) * engine_power
 		velocity = velocity.linear_interpolate(desired_velocity, steer_force)
-		rotation = velocity.angle()
+		self.rotation = velocity.angle()
 	else:
-		steer_direction = _get_input() * deg2rad(steering_angle)
-		rotation = _calculate_steering(delta)
+		steer_direction = _get_turn_input() * deg2rad(steering_angle)
+		self.rotation = _calculate_steering(delta)
 		
 	_process_timer(delta)
 	_apply_friction()
@@ -74,8 +77,47 @@ func _physics_process(delta: float) -> void:
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
 
+
+func _handle_debug():
+	if debug_draw:
+		$Label.visible = true
+	else:
+		$Label.visible = false
+		return
+
+	var label: Label = $Label
+	var spacing := "_".repeat(10)
+	var label_string = ""
 	
-func _get_input() -> int:
+	label.add_color_override("font_color", Color(0, 0, 0))
+	label.set_rotation(-self.rotation)
+	
+	label_string =  "%s%s%s\n" % ["self.is_live_race", spacing, str(is_live_race)]
+	label_string += "%s%s%s\n" % ["self.is_human", spacing, str(is_human)]
+	label_string += "%s%s(%.2f, %.2f)\n" % ["self.acceleration", spacing, self.velocity.x, self.velocity.y]
+	label_string += "%s%s(%.2f, %.2f)\n" % ["self.velocity", spacing, self.acceleration.x, self.acceleration.y]
+	label_string += "%s%s%s\n" % ["self.steer_direction", spacing, str(steer_direction)]
+	label_string += "%s%s%.2f\n" % ["self.rotation", spacing, rad2deg(self.rotation)]
+	label_string += "%s%s%s\n" % ["self.is_human", spacing, str(is_human)]
+	label_string += "%s%s%s" % ["is_timer_on", spacing, str(is_timer_on)]
+	
+	label.text = label_string	
+	# AI information
+	if is_human: return
+	label.add_color_override("font_color", Color(255, 100, 0))
+	label.text += "\n___AI INFORMATION___\n"
+	label.text += "%s%s%.2f\n" % ["AI: steer_force", spacing, steer_force]
+	label.text += "%s%s%d\n" % ["AI: look_ahead", spacing, look_ahead]
+	label.text += "%s%s%s\n" % ["AI: num_rays", spacing, num_rays]
+	label.text += "%s%s(%.2f, %.2f)\n" % ["AI: last_loc", spacing, last_loc.x, last_loc.y]
+	label.text += "%s%s%s\n" % ["AI: ray_directions", spacing, str(ray_directions)]
+	label.text += "%s%s%s\n" % ["AI: interest", spacing, str(interest)]
+	label.text += "%s%s%s\n" % ["AI: danger", spacing, str(ray_directions)]
+	label.text += "%s%s(%.2f, %.2f)\n" % ["AI: chosen_dir", spacing, chosen_dir.x, chosen_dir.y]
+
+
+
+func _get_turn_input() -> int:
 	var turn: int = 0
 	if Input.is_action_pressed("steer_right"):
 		turn += 1
@@ -92,13 +134,8 @@ func _get_input() -> int:
 	return turn
 
 
-func _bot_set_up():
-	interest.resize(num_rays)
-	danger.resize(num_rays)
-	ray_directions.resize(num_rays)
-	for index in num_rays:
-		var angle = index * 2 * PI / num_rays
-		ray_directions[index] = Vector2.RIGHT.rotated(angle)
+func set_is_human(value: bool):
+	is_human = value
 
 # Set interest in each slot based on world direction
 func _set_interest():
@@ -126,16 +163,17 @@ func _set_danger():
 		danger[i] = 1.0 if result else 0.0
 
 
-func _choose_direction():
+func _choose_direction() -> Vector2:
 	# Eliminate interest in slots with danger
 	for i in num_rays:
 		if danger[i] > 0.0:
 			interest[i] = 0.0
 	# Choose direction based on remaining interest
-	chosen_dir = Vector2.ZERO
+	var direction = Vector2.ZERO
 	for i in num_rays:
-		chosen_dir += ray_directions[i] * interest[i]
-	chosen_dir = chosen_dir.normalized()
+		direction += ray_directions[i] * interest[i]
+	direction = direction.normalized()
+	return direction
 
 
 func _is_stuck(from: int = -50, to: int = 50) -> void:

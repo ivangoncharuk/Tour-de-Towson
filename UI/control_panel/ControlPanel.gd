@@ -64,6 +64,10 @@ func _on_Value_changed(value, node) -> void:
 
 
 
-func _on_CheckBox_toggled(button_pressed: bool):
+func _on_DebugDraw_toggled(button_pressed):
+	player.debug_draw = button_pressed
+
+
+func _on_AIToggle_toggled(button_pressed):
 	player.is_human = !button_pressed
 	print(player.is_human)
