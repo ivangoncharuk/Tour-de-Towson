@@ -104,7 +104,7 @@ text = "Current Lap"
 margin_left = 472.0
 margin_right = 480.0
 margin_bottom = 14.0
-text = "2"
+text = "0"
 
 [node name="TimeContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 margin_top = 66.0
