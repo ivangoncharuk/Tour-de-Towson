@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/race_theme.ogg-4e08896e63e0e1f3ba1475be2d937c2d.oggstr"
+
+[deps]
+
+source_file="res://asset/music/race_theme.ogg"
+dest_files=[ "res://.import/race_theme.ogg-4e08896e63e0e1f3ba1475be2d937c2d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

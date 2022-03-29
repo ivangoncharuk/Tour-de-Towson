@@ -4,7 +4,7 @@ export (int) var count_down_length
 var seconds: int = count_down_length
 
 var _active: bool = false setget set_active, is_active
-var beep_sound = preload("res://assets/sound/countdownBeep.wav")
+var beep_sound = preload("res://asset/sound/countdownBeep.wav")
 
 onready var timer_label: Control = $CenterContainer/Label
 

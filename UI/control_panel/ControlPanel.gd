@@ -4,9 +4,6 @@ var SettingSlider: PackedScene = preload("res://ui/SettingSlider.tscn")
 
 var player: Player = null
 
-
-onready var checkbox = $Panel/VBoxContainer/HBoxContainer/CheckBox
-
 var car_settings := [
 	'traction_fast',
 	'traction_slow',

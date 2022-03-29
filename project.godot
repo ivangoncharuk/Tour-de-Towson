@@ -9,31 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "KinematicBody2D",
-"class": "AI",
-"language": "GDScript",
-"path": "res://ai/AI.gd"
-}, {
 "base": "Area2D",
 "class": "Checkpoint",
 "language": "GDScript",
-"path": "res://checkpoint/Checkpoint.gd"
+"path": "res://checkpoint_system/Checkpoint.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://player/Player.gd"
+"path": "res://actor/Player.gd"
 } ]
 _global_script_class_icons={
-"AI": "",
 "Checkpoint": "",
-"Player": "res://assets/class_icons/bike_icon.png"
+"Player": "res://asset/class_icons/bike_icon.png"
 }
 
 [application]
 
 config/name="Tour-de-Towson"
-run/main_scene="res://levels/Demo.tscn"
+run/main_scene="res://level/Demo.tscn"
 config/icon="res://assets/icon.png"
 
 [autoload]
@@ -103,4 +97,4 @@ toggle_debug_draw={
 [rendering]
 
 2d/snapping/use_gpu_pixel_snap=true
-environment/default_environment="res://assets/default_env.tres"
+environment/default_environment="res://asset/default_env.tres"
