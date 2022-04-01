@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/buttons/MenuButton.tscn" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _on_Retry_pressed():
+	get_tree().reload_current_scene()
+	pass # Replace with function body.
+
+
+func _on_Quit_pressed():
+	print(\"To Title Screen\")
+	pass # Replace with function body.
+
+
+func _on_ExitGame_pressed():
+	get_tree().quit()
+	pass # Replace with function body.
+"
+
+[node name="Finished" type="Control"]
+margin_right = 644.0
+margin_bottom = 357.0
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1.0
+margin_bottom = 10.0
+color = Color( 0.0313726, 0.0235294, 0.0235294, 0.760784 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 273.0
+margin_top = 138.0
+margin_right = 370.0
+margin_bottom = 218.0
+custom_constants/separation = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 97.0
+margin_bottom = 14.0
+text = "Race Finished"
+align = 1
+uppercase = true
+
+[node name="Retry" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 16.0
+margin_right = 97.0
+margin_bottom = 36.0
+text = "Retry"
+
+[node name="Quit" parent="CenterContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 38.0
+margin_right = 97.0
+margin_bottom = 58.0
+text = "Quit to title"
+scene_to_load = "res://ui/menus/TitleScreen.tscn"
+
+[node name="ExitGame" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 97.0
+margin_bottom = 80.0
+text = "Exit Game"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Retry" to="." method="_on_Retry_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitGame" to="." method="_on_ExitGame_pressed"]

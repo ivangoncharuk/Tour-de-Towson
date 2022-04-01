@@ -8,7 +8,6 @@ func _ready():
 	
 func increment_lap_counter():
 	_lap_counter += 1
-
 func get_lap_counter() -> int:
 	return _lap_counter
 	

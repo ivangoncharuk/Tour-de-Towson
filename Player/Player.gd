@@ -218,7 +218,8 @@ func _process_timer(delta: float) -> void:
 		
 	_time += delta
 	
-	if Global.get_lap_counter() == num_lap_to_finish:
+	if Global.get_lap_counter() > num_lap_to_finish:
+		get_parent().get_node("HUD/Finished").visible = true
 		is_timer_on = false
 		is_live_race = false
 		print("time: %d" % _time)
@@ -239,5 +240,5 @@ func _on_Finish_body_entered(_body: Node):
 		return
 	is_live_race = true # live_race state set to true
 	is_timer_on = true  # turns timer on
-	_time = 0 			# reset the timer
+	_time = 0 			# reset the time
 	print("timer started!")
