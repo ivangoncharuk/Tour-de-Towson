@@ -8,9 +8,9 @@
 [ext_resource path="res://countdown_timer/CountdownTimer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://AI.tscn" type="PackedScene" id=7]
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 2953.71, 1076.67, 6.35678, -341.147, -6.35678, 341.147, 2961.72, 1595.23, 58.7993, -67.7083, -58.7993, 67.7083, 2940.89, 1900.26, 0, 0, 0, 0, 2756.64, 1917.78, 0, 0, 0, 0, 2525.93, 1924.27, 0, 0, 0, 0, 2255.96, 1917.78, 0, 0, 0, 0, 1999.61, 1931.41, 0, 0, 0, 0, 1730.44, 1934.66, 144.326, 42.7631, -144.326, -42.7631, 1486.11, 1945.04, 81.9627, 245.888, -81.9627, -245.888, 1106.4, 1798.37, -39.1995, 171.053, 39.1995, -171.053, 1138.44, 1442.71, -146.107, 46.3267, 146.107, -46.3267, 1124.82, 1101.33, 0, 0, 0, 0, 1959.56, 1064.34, -121.053, -7.69191, 121.053, 7.69191, 2512.31, 1058.5, 0, 0, 0, 0, 2953.71, 1074.08 )
+"points": PoolVector2Array( 0, 0, 0, 0, 864, 840, 0, 0, 0, 0, 3138, 845, 0, 0, 0, 0, 3138, 2182, 0, 0, 0, 0, 869, 2172, 0, 0, 0, 0, 864, 840 )
 }
 
 [node name="Demo" type="Node2D"]
@@ -58,16 +58,6 @@ _next_checkpoint = NodePath("../cp2")
 position = Vector2( 478, 1799 )
 scale = Vector2( 13.4442, 1 )
 _next_checkpoint = NodePath("../Finish")
-
-[node name="Path2D" type="Path2D" parent="."]
-self_modulate = Color( 0.0588235, 0.133333, 0.443137, 0.701961 )
-position = Vector2( -541.113, -772.957 )
-scale = Vector2( 1.2483, 1.54082 )
-curve = SubResource( 2 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 3276.39, 1028.45 )
-rotation = 0.867957
 
 [node name="AIContainer" type="Node" parent="."]
 
@@ -357,6 +347,14 @@ position = Vector2( 1446, 477 )
 
 [node name="AI96" parent="AIContainer" instance=ExtResource( 7 )]
 position = Vector2( 1446, 413 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 864, 840 )
+rotation = 0.00216138
+scale = Vector2( 1.42592, 1.37809 )
 
 [connection signal="go" from="HUD/CountdownTimer" to="." method="_on_CountdownTimer_go"]
 [connection signal="body_entered" from="Checkpoints/Finish" to="Player" method="_on_Finish_body_entered"]
