@@ -38,8 +38,7 @@ func set_is_paused(value: bool) -> void:
 	else:
 		control_panel.hide()
 		player_hud.hide()
-
-
+		
 func _on_PauseMenu_resume_pressed():
 	self.is_paused = false
 

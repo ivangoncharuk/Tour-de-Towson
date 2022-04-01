@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://checkpoint/Checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/tilemap/test_tilemap.tres" type="TileSet" id=4]
 [ext_resource path="res://levels/Demo.gd" type="Script" id=5]
 [ext_resource path="res://countdown_timer/CountdownTimer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://AI.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=2]
 _data = {
@@ -67,6 +68,10 @@ curve = SubResource( 2 )
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 3276.39, 1028.45 )
 rotation = 1.32448
+
+[node name="AIContainer" type="Node" parent="."]
+
+[node name="AI" parent="AIContainer" instance=ExtResource( 7 )]
 
 [connection signal="go" from="HUD/CountdownTimer" to="." method="_on_CountdownTimer_go"]
 [connection signal="body_entered" from="Checkpoints/Finish" to="Player" method="_on_Finish_body_entered"]
