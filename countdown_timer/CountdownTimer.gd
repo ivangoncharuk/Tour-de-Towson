@@ -42,4 +42,3 @@ func set_active(value: bool):
 func _on_Go_finished():
 	self._active = false
 	hide()
-	

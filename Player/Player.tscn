@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/sprites/player/player_prototype.png" type="Texture" id=1]
 [ext_resource path="res://player/Player.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 24.336
+height = 59.3455
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -18,12 +22,6 @@ region_rect = Rect2( 7, 45, 112, 48 )
 position = Vector2( -2, 0 )
 current = true
 zoom = Vector2( 2, 2 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2( -7, 0 )
-build_mode = 1
-polygon = PoolVector2Array( -23.8687, -11, -6.86875, -12, 5.13125, -13, 10.1313, -21, 12.1313, -22, 39.1312, -19, 44.1312, -16, 44.1312, -3, 60.1312, -2, 60.1312, 1, 44.1312, 2, 44.1312, 15, 40.1312, 17, 27.1313, 21, 12.1313, 22, 10.1313, 21, 5.13125, 12, -6.86875, 11, -23.8687, 10, -27.8687, 3, -44.8688, 1, -44.8688, -2, -27.8687, -4 )
 
 [node name="FrontWheel" type="Position2D" parent="."]
 position = Vector2( 35, -1 )
@@ -40,3 +38,10 @@ margin_top = -104.0
 margin_right = 231.0
 margin_bottom = -90.0
 text = "This is a label"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+rotation = 1.58517
+shape = SubResource( 2 )

@@ -38,6 +38,7 @@ func _create_entry(name: String = "label_name") -> HBoxContainer:
 	hbox.add_child(data_label)
 	return hbox
 
+
 func _process(_delta: float) -> void:
 	if not player is Player:
 		return

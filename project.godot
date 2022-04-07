@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "AI",
 "language": "GDScript",
-"path": "res://ai/AI.gd"
+"path": "res://artificial_intelligence/AI.gd"
 }, {
 "base": "Area2D",
 "class": "Checkpoint",
 "language": "GDScript",
-"path": "res://checkpoint/Checkpoint.gd"
+"path": "res://checkpoint/cp.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -27,13 +27,13 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AI": "",
 "Checkpoint": "",
-"Player": "res://assets/class_icons/bike_icon.png"
+"Player": ""
 }
 
 [application]
 
 config/name="Tour-de-Towson"
-run/main_scene="res://levels/Demo.tscn"
+run/main_scene="res://levels/World.tscn"
 config/icon="res://assets/icon.png"
 
 [autoload]
@@ -73,6 +73,16 @@ accelerate={
 brake={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_focus={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+escape={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 pause={
