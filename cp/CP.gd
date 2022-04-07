@@ -10,8 +10,8 @@ func _ready() -> void:
 	pass
 
 
-func _on_Checkpoint_body_entered(_body: Node) -> void:
-	if(_body.name == "Player"):
+func _on_Checkpoint_body_entered(body: Node) -> void:
+	if body is Player:
 		if not _is_active:
 			return
 		if _is_finish_line:
