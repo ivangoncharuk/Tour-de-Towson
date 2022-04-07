@@ -13,9 +13,11 @@ func get_path_direction(pos):
 	path_follow.offset = offset
 	return path_follow.transform.x
 
+
 func _on_CountdownTimer_go():
 	set_movement_locked(false)
-	
+
+
 func set_movement_locked(value: bool):
 	player.is_movement_locked = value
 	for i in ai_container.get_children():
