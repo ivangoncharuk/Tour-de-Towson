@@ -18,6 +18,12 @@ script = ExtResource( 5 )
 [node name="HUD" parent="." instance=ExtResource( 1 )]
 script = null
 
+[node name="Controls" parent="HUD" index="0"]
+text = "input map:
+TOGGLE_HUD = Tab
+TOGGLE_CONTROL_PANEL = F3
+"
+
 [node name="PlayerHUD" parent="HUD" index="1"]
 player_path = NodePath("../../Player")
 

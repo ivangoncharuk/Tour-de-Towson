@@ -16,6 +16,7 @@ func get_path_direction(pos):
 
 func _on_CountdownTimer_go():
 	set_movement_locked(false)
+	player.is_timer_on = true;
 
 
 func set_movement_locked(value: bool):

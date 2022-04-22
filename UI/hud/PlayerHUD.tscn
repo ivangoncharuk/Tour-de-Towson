@@ -11,6 +11,9 @@ bg_color = Color( 0, 0, 0, 0.458824 )
 
 [node name="PlayerHUD" type="Control"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="PanelContainer" parent="."]
 margin_left = 390.0
