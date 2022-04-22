@@ -16,8 +16,9 @@ export (float) var drag = -0.001
 export (int) var slip_speed = 400
 export (int) var steering_angle = 5 # in degrees
 export (int) var max_speed_reverse = 50
-
+signal game_over
 onready var wheel_base = abs($FrontWheel.position.x - $BackWheel.position.x)
+onready var current_lap = 0
 
 var is_movement_locked: bool
 var acceleration := Vector2.ZERO
@@ -218,12 +219,9 @@ func _process_timer(delta: float) -> void:
 		
 	_time += delta
 	
-	if Global.get_lap_counter() == num_lap_to_finish:
+	if Global.get_lap_counter() >= num_lap_to_finish:
 		is_timer_on = false
-		is_live_race = false
-		print("time: %d" % _time)
-		Global.set_lap_counter(0)
-		print("global lap counter to %s" % Global.get_lap_counter())
+		emit_signal("game_over", get_current_time());
 
 
 func set_current_time(time: float) -> void:
