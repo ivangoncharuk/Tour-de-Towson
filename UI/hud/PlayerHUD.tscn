@@ -11,6 +11,9 @@ bg_color = Color( 0, 0, 0, 0.458824 )
 
 [node name="PlayerHUD" type="Control"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="PanelContainer" parent="."]
 margin_left = 390.0
@@ -57,6 +60,9 @@ margin_right = 49.0
 margin_bottom = 20.0
 rect_scale = Vector2( 0.8, 0.8 )
 text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Acceleration" type="HBoxContainer" parent="Panel/VBoxContainer"]
 margin_top = 24.0
@@ -88,6 +94,9 @@ margin_right = 49.0
 margin_bottom = 20.0
 rect_scale = Vector2( 0.8, 0.8 )
 text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LapContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 margin_top = 48.0
