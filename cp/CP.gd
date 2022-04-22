@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 func _on_Checkpoint_body_entered(body: Node) -> void:
-	if body is Player:
+	if body is Player && body.is_human:
 		if not _is_active:
 			return
 		if _is_finish_line:
